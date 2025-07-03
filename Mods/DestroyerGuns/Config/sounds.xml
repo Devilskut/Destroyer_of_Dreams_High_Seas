@@ -1,0 +1,71 @@
+<config>
+ <append xpath="/Sounds">
+
+<SoundDataNode name="Minigun_fire"> <AudioSource name="@:Sounds/Prefabs/AudioSource_WeaponFire.prefab"/> <NetworkAudioSource name="@:Sounds/Prefabs/AudioSource_WeaponFire_Network.prefab"/>
+	<Noise ID="0" noise="108" time="2" muffled_when_crouched="0.8" heat_map_strength="0.45" heat_map_time="180"/>
+	<AudioClip ClipName="@:Sounds/Weapons/Ranged/M136/m136_fire.wav"/>
+	<LocalCrouchVolumeScale value="1"/> <CrouchNoiseScale value="1"/> <NoiseScale value="1"/> <MaxVoices value="60"/> <MaxVoicesPerEntity value="30"/> <MaxRepeatRate value="0.001"/> </SoundDataNode>
+	
+<SoundDataNode name="flamethrower_start"> <AudioSource name="@:Sounds/Prefabs/AudioSource_Impact.prefab"/>
+	<Noise ID="2" noise="11" time="3" muffled_when_crouched="0.5"/>
+	<AudioClip ClipName="@:Sounds/ImpactSurface/chainsawhitorganic1.wav"/>
+	<AudioClip ClipName="@:Sounds/ImpactSurface/chainsawhitorganic2.wav"/>
+	<AudioClip ClipName="@:Sounds/ImpactSurface/chainsawhitorganic3.wav"/>
+	<AudioClip ClipName="@:Sounds/ImpactSurface/chainsawhitorganic4.wav"/>
+	<AudioClip ClipName="@:Sounds/ImpactSurface/chainsawhitorganic5.wav"/>
+	<AudioClip ClipName="@:Sounds/ImpactSurface/chainsawhitorganic6.wav"/>
+	<LowestPitch name="0.9"/>
+	<HighestPitch name="1.0"/>
+	<LocalCrouchVolumeScale value="0.3"/>
+	<CrouchNoiseScale value="0.5"/>
+	<NoiseScale value="1"/>
+	<MaxVoices value="5"/>
+	<MaxRepeatRate value="0.01"/>
+</SoundDataNode>
+	 
+<!-- <AudioSource name="@:Sounds/Prefabs/AudioSource_WeaponFire.prefab"/>
+<NetworkAudioSource name="@:Sounds/Prefabs/AudioSource_WeaponFire_Network.prefab"/>
+	 <AudioClip ClipName="#@modfolder:Assets/AircraftCarrierSounds.unity3d?flamethrower_start"/> 
+	<Priority name="3"/>
+	<maxVoicesPerEntity value="20"/>
+  <LowestPitch name="0.95"/>
+  <HighestPitch name="1.05"/>
+	<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="20"/> <MaxRepeatRate value=".01"/> 
+</SoundDataNode> -->
+
+<SoundDataNode name="flamethrower_Loop"> <AudioSource name="@:Sounds/Prefabs/AudioSource_Impact.prefab"/>
+<NetworkAudioSource name="@:Sounds/ImpactSurface/chainsawhitorganic1.wav"/>
+	<!-- <AudioClip ClipName="#@modfolder:Assets/AircraftCarrierSounds.unity3d?flamethrower_start"/> -->
+	<Priority name="3"/>
+	<maxVoicesPerEntity value="20"/>
+  <LowestPitch name="0.95"/>
+  <HighestPitch name="1.05"/>
+	<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="20"/> <MaxRepeatRate value=".01"/> 
+</SoundDataNode>	
+	
+<SoundDataNode name="GrenadeLauncher_fire"> <AudioSource name="@:Sounds/Prefabs/AudioSource_WeaponFire.prefab"/>
+	<NetworkAudioSource name="@:Sounds/Prefabs/AudioSource_WeaponFire_Network.prefab"/>
+	<Noise ID="4" noise="100" time="2" heat_map_strength="0.2" heat_map_time="90"/>
+	<AudioClip ClipName="@:Sounds/Weapons/Ranged/M136/m136_fire.wav"/>
+	<AudioClip ClipName="@:Sounds/Twitch/Silly/shotgun_fire_silly1.wav" AltSound="true"/>
+	<AudioClip ClipName="@:Sounds/Twitch/Silly/shotgun_fire_silly2.wav" AltSound="true"/>
+	<AudioClip ClipName="@:Sounds/Twitch/Silly/shotgun_fire_silly3.wav" AltSound="true"/>
+	<LocalCrouchVolumeScale value="1"/>
+	<CrouchNoiseScale value="1"/>
+	<NoiseScale value="1"/>
+	<MaxVoices value="10"/>
+	<MaxRepeatRate value="0.001"/>
+</SoundDataNode>
+
+	<!-- 
+     <AudioSource name="@:Sounds/Prefabs/AudioSource_WeaponFire.prefab"/> <NetworkAudioSource name="@:Sounds/Prefabs/AudioSource_WeaponFire_Network.prefab"/>
+	<Noise ID="0" noise="108" time="2" muffled_when_crouched="0.8" heat_map_strength="0.45" heat_map_time="180"/>
+    <AudioClip ClipName="#@modfolder:Assets/AircraftCarrierSounds.unity3d?GrenadeLauncher_fire"/> 
+    <AudioClip ClipName="Sounds/Twitch/Silly/hunting_rifle_fire_silly1" AltSound="true"/>
+    <AudioClip ClipName="Sounds/Twitch/Silly/hunting_rifle_fire_silly2" AltSound="true"/>
+    <AudioClip ClipName="Sounds/Twitch/Silly/hunting_rifle_fire_silly3" AltSound="true"/>
+	<LocalCrouchVolumeScale value="1"/> <CrouchNoiseScale value="1"/> <NoiseScale value="1"/> <MaxVoices value="20"/> <MaxVoicesPerEntity value="6"/> <MaxRepeatRate value="0.001"/> </SoundDataNode>
+	-->	
+	
+</append>
+</config>

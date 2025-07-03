@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<prefab>
+  <property name="CopyAirBlocks" value="True" />
+  <property name="ExcludeDistantPOIMesh" value="False" />
+  <property name="ExcludePOICulling" value="False" />
+  <property name="DistantPOIYOffset" value="0" />
+  <property name="AllowTopSoilDecorations" value="False" />
+  <property name="DifficultyTier" value="0" />
+  <property name="ShowQuestClearCount" value="1" />
+  <property name="TraderArea" value="False" />
+  <property name="PrefabSize" value="22, 39, 217" />
+  <property name="RotationToFaceNorth" value="2" />
+  <property name="Zoning" value="none" />
+  <property name="SleeperVolumeSize" value="10, 3, 42#13, 9, 18#13, 8, 15#11, 4, 30#13, 3, 19#15, 4, 84" />
+  <property name="SleeperVolumeStart" value="1, 16, 10#0, 17, 52#0, 26, 53#1, 16, 173#0, 16, 154#0, 15, 70" />
+  <property name="SleeperVolumeGroupId" value="0,0,0,0,0,0" />
+  <property name="SleeperVolumeGroup" value="zombieScreamer,5,6,GroupGenericZombie,9,10,zombieSkateboarder,2,3,GroupGenericZombie,2,3,zombieScreamer,3,4,zombieScreamer,6,7" />
+  <property name="SleeperIsLootVolume" value="False,False,False,False,False,False" />
+  <property name="SleeperIsQuestExclude" value="False,False,False,False,False,False" />
+  <property name="SleeperVolumeFlags" value="0,0,0,0,0,0" />
+  <property name="SleeperVolumeTriggeredBy" value=" # # # # # " />
+  <property class="IndexedBlockOffsets">
+    <property class="challenge_polymers">
+      <property name="0" value="5, 16, 188" />
+      <property name="1" value="8, 16, 188" />
+    </property>
+    <property class="challenge_pallet">
+      <property name="0" value="4, 16, 187" />
+      <property name="1" value="4, 17, 187" />
+      <property name="2" value="5, 16, 187" />
+    </property>
+    <property class="POILight">
+      <property name="0" value="5, 38, 61" />
+      <property name="1" value="5, 24, 67" />
+    </property>
+    <property class="challenge_sinks">
+      <property name="0" value="8, 17, 62" />
+    </property>
+    <property class="challenge_cars">
+      <property name="0" value="6, 16, 177" />
+    </property>
+  </property>
+  <property class="Stats">
+    <property name="TotalVertices" value="244461" />
+    <property name="TotalTriangles" value="150347" />
+    <property class="BlockEntities">
+      <property name="Vertices" value="76721" />
+      <property name="Triangles" value="25631" />
+    </property>
+    <property class="ChunkMeshes0">
+      <property name="Vertices" value="154254" />
+      <property name="Triangles" value="102548" />
+    </property>
+    <property class="ChunkMeshes1">
+      <property name="Vertices" value="0" />
+      <property name="Triangles" value="0" />
+    </property>
+    <property class="ChunkMeshes2">
+      <property name="Vertices" value="136" />
+      <property name="Triangles" value="68" />
+    </property>
+    <property class="ChunkMeshes3">
+      <property name="Vertices" value="192" />
+      <property name="Triangles" value="96" />
+    </property>
+    <property class="ChunkMeshes4">
+      <property name="Vertices" value="0" />
+      <property name="Triangles" value="0" />
+    </property>
+    <property class="ChunkMeshes5">
+      <property name="Vertices" value="13158" />
+      <property name="Triangles" value="22004" />
+    </property>
+  </property>
+</prefab>
