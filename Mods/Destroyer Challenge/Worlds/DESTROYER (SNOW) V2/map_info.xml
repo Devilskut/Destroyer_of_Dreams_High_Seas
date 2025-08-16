@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MapInfo>
+  <property name="Name" value="V2 SuperFlat" />
+  <property name="Modes" value="Survival,Creative" />
+  <property name="Description" value="Empty World" />
+  <property name="Scale" value="1" />
+  <property name="HeightMapSize" value="2048, 2048" />
+  <property name="FixedWaterLevel" value="False" />
+  <property name="RandomGeneratedWorld" value="False" />
+  <property name="GameVersion" value="V.2.0.289" />
+</MapInfo>

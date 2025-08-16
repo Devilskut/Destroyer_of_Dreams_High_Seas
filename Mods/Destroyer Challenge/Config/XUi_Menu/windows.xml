@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configs>
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='XPMultiplier']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='DayNightLength']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='BlockDamagePlayer']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='QuestProgressionDailyLimit']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='LootAbundance']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='BlockDamageAI']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='BlockDamageAIBM']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='EnemySpawnMode']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='MaxChunkAge']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='BuildCreate']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='PlayerKillingMode']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='LandClaimSize']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='LandClaimDeadZone']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='LandClaimExpiryTime']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='LandClaimDecayMode']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='LandClaimOnlineDurabilityModifier']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='LandClaimOfflineDurabilityModifier']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='LandClaimOfflineDelay']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='BedrollDeadZoneSize']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='BedrollExpiryTime']" />
+	<!-- <remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='DeathPenalty']" /> -->
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='DropOnDeath']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='DropOnQuit']" />
+
+	<remove xpath="/windows/window[@name='spawnselection']"/>
+
+	<insertbefore xpath="/windows/window[@name='subtitlesDisplay']">
+
+		<window name="spawnselection" depth="250" pos="-250,50" width="500" height="100" anchor="CenterCenter" controller="SpawnSelectionWindow" spawn_sound="@:Sounds/UI/ui_spawn.wav" cursor_area="true">
+			<rect visible="{progressVisible}" >
+				<panel name="noclick" depth="2" createuipanel="true" pos="-20,20" width="540" height="140" clipping="softclip" clippingsoftness="20,20" disableautobackground="true">
+					<sprite depth="0" name="backgroundMain" sprite="menu_empty" color="0,0,0,190" type="sliced" fillcenter="true" />
+				</panel>
+
+				<panel depth="10" createuipanel="true" disableautobackground="true" >
+					<label name="lblProgress" pos="250,-50" width="480" height="80" font_size="32" justify="center" pivot="center" />
+				</panel>
+			</rect>
+
+			<rect name="buttons" visible="{buttonsVisible}" pos="0,130" >
+				<panel name="header" pos="0,0" height="43" depth="2" createuipanel="true" backgroundspritename="ui_game_panel_header" bordercolor="[black]" borderthickness="0" >
+					<label style="header.name" pos="6,-6" width="490" text_key="respawnTitleMessage" justify="center" />
+				</panel>
+
+				<table pos="0,-61" columns="1" padding="0,9" always_reposition="true" name="content">
+					<!-- <panel name="boxSpawnNearFriend" width="500" height="250" depth="3" pivot="center" padding="4" bordercolor="[black]" borderthickness="0" borderinset="0" borderspritename="menu_empty3px" backgroundcolor="[darkGrey]" controller="SpawnNearFriendsList" cursor_controllable="true" visible="{showNearFriends}">
+							<label name="lblCaption" depth="4" pos="2,-18" width="370" height="35" font_size="28" color="[beige]" pivot="left" justify="left" parse_actions="true" max_line_count="1" text_key="lblSpawnNearFriend" overflow="shrinkcontent" />
+
+							<rect name="friends" pos="0,0" height="200" width="480" visible="{# entrycounttotal &gt; 0 }">
+								<pager name="pager" pos="390,0" />
+								
+								<grid name="list" depth="2" rows="5" cols="1" pos="0,-40" height="160" cell_width="196" cell_height="32" repeat_content="true" arrangement="vertical" >
+									<spawnnearfriends_list_entry width="492" height="30" />
+								</grid>
+							
+								<simplebutton name="btnSpawnNearFriend" pos="0,-200" width="492" height="42" font_size="36" caption_key="lblSpawnNearFriendButton" enabled="{selectionValid}" tooltip_key="xuiPromptViewPlayerProfile" />
+							</rect>
+							
+							<label pos="250,-80" width="400" height="60" font_size="28" color="[red]" pivot="center" justify="center" overflow="shrinkcontent" text_key="lblSpawnNoAvailableFriends" visible="{# entrycounttotal == 0 }" ignoreparentpadding="true" />
+						</panel> -->
+					<simplebutton name="btnSpawnFirstTime" width="500" height="42" font_size="36" caption_key="lblSpawnRandom" visible="{# enteringGame and firstTimeSpawn}" />
+					<simplebutton name="btnSpawn" width="500" height="42" font_size="36" caption_key="lblSpawn" visible="{# enteringGame and !firstTimeSpawn}" />
+					<rect width="500" height="42" createuiwidget="true" />
+					<simplebutton name="btnLeave" width="500" height="42" font_size="36" caption_key="xuiSpawnLeaveGame" visible="{# enteringGame and !is_server}" />
+
+					<simplebutton name="btnRespawn" width="500" height="42" font_size="36" caption_key="lblRespawn" visible="{# !enteringGame and !hasBackpack and !hasBedroll }" />
+					<simplebutton name="btnNearBackpack" width="500" height="42" font_size="36" caption_key="lblSpawnNearBackpack" visible="{# !enteringGame and hasBackpack}" />
+					<simplebutton name="btnOnBedroll" width="500" height="42" font_size="36" caption_key="lblSpawnOnBedroll" visible="{# !enteringGame and hasBedroll}" />
+					<simplebutton name="btnNearBedroll" width="500" height="42" font_size="36" caption_key="lblSpawnNearBedroll" visible="{# !enteringGame and hasBedroll}" />
+				</table>
+			</rect>
+		</window>
+
+	</insertbefore>
+ 
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='AirDropMarker']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='BiomeProgression']" />
+	<remove xpath="/windows/window[@name='newContinueGame']/rect/rect/rect/rect/grid/gameoption[@name='StormFreq']" />
+
+</configs>
