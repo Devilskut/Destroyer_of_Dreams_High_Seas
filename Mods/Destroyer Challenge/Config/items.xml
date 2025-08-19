@@ -20,8 +20,8 @@
 			<property name="Delay" value="0"/>
 			<property name="Use_time" value="0"/>
 			<property name="Sound_start" value="UseActions/open_backpack"/>
-			<property name="Create_item" value="biomeBadge4,Armor,Weapon,modArmorHelmetLight"/>
-			<property name="Create_item_count" value="1,1,1,1"/>
+			<property name="Create_item" value="biomeWeatherItem1,biomeWeatherItem2,biomeWeatherItem3,biomeWeatherItem4,Armor,Weapon,modArmorHelmetLight"/>
+			<property name="Create_item_count" value="1,1,1,1,1,1,1"/>
 		</property>
 	</item>	
 	</insertAfter>

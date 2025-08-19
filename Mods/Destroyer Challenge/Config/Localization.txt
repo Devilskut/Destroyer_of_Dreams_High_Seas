@@ -350,7 +350,7 @@ dishongTowerBundleDesc,Starter items for the Destroyer challenge.,,
 
 Welcome,"Started The Destroyer Challenge"
 
-tutorialTipQuest01,"Welcome back aboard the Destroyer, Master Chief! \nThe Destroyer was returned to the docks after your last rescue mission from certain doom on the Aircraft Carrier Challenge, but it seems the zombies from the Oil Tanker reinfested the Destroyer. Now grab your supplies, eliminate the zombie threat, and build an UH-60 helicopter to seek refuge at a nearby [ff7f27]OIL RIG[-].  \n\nRULES: \n1. The ground around the Docks is [ff7f27]SPICY[-] and may [ff7f27]NOT[-] be used to support any structures, or to grow any crops, unless you can do this [ff7f27]WITHOUT[-] touching it.\n2. You may not mine or dig under the Destroyer or Docks.\n3. All default game settings, unless you are a seasoned gamer.\n4. It is recommended to have sleeper respawns set to [ff7f27]7 DAYS[-].\n5. You must survive until you are able to build a AH-64 and fly off the Destroyer to complete your [ff7f27]Final Mission [-].\n\nIf  [ff7f27]ANYONE[-] dies, the mission is over. [cd5c5c]PERMADEATH CHALLENGE[-] \n\nIf  [ff7f27]ANYONE[-] dies, the mission is [ff7f27] NOT[-] over, you may come back [FFFF00]injured[-]"
+tutorialTipQuest01,"Welcome back aboard the Destroyer, Master Chief! \nThe Destroyer was returned to the docks after your last rescue mission from certain doom on the Aircraft Carrier Challenge, but it seems the zombies from the Oil Tanker reinfested the Destroyer. Now grab your supplies, eliminate the zombie threat, and build an UH-60 helicopter to seek refuge at a nearby [ff7f27]OIL RIG[-].  \n\nRULES: \n1. The ground around the Docks is [ff7f27]SPICY[-] and may [ff7f27]NOT[-] be used to support any structures, or to grow any crops, unless you can do this [ff7f27]WITHOUT[-] touching it.\n2. You may not mine or dig under the Destroyer or Docks.\n3. All default game settings, unless you are a seasoned gamer.\n4. It is recommended to have sleeper respawns set to [ff7f27]7 DAYS[-].\n5. You must survive until you are able to build a UH-60 and fly off the Destroyer to complete your [ff7f27]Final Mission [-].\n\nIf  [ff7f27]ANYONE[-] dies, the mission is over. [cd5c5c]PERMADEATH CHALLENGE[-] \n\nIf  [ff7f27]ANYONE[-] dies, the mission is [ff7f27] NOT[-] over, you may come back [FFFF00]injured[-]"
 
 challenge_StartingDestroyer,"Welcome aboard Master Chief!"
 challenge_StartingDestroyer_subtitle,"Clear some zombies"
@@ -389,7 +389,7 @@ quest_DestroyerChallenge07_subtitle,"Place, Starting helicopter "
 quest_DestroyerChallenge07_description,"Place Starting helicopter, with the parts crafted USE the Apache Impact Driver to upgrade to your new AH-64 helicopter!"
 
 quest_DestroyerChallenge08,"Time to blow SHIT up!"
-quest_DestroyerChallenge08_subtitle,"Head to the Fort 666, and annihilate some zombies."
+quest_DestroyerChallenge08_subtitle,"Head to Fort 666, and annihilate some zombies."
 quest_DestroyerChallenge08_description,"You might want to bring some heavy ammo and weaponry to give yourself a fighting chance."
 
 quest_DestroyerChallenge09,"Final Mission?"
@@ -401,4 +401,4 @@ Challenge_Completion_subtitle,"Congrats!"
 Challenge_Completion_description,"Congrats."
 
 Congrats,"Destroyer Challenge Complete"
-Congrats_message,"Congrats!  You have completed the Destroyer Challenge. GG!!"
+Congrats_message,"Congrats!  You have completed the Destroyer of Dreams Challenge. GG!!"
