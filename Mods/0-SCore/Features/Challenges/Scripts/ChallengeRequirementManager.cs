@@ -26,19 +26,21 @@ public static class ChallengeRequirementManager
 
     }
 
-    public static bool IsValid(string id)
+    public static bool IsValid(string id, MinEventParams minEventContext = null) 
     {
         if (!ChallengeRequirements.TryGetValue(id.ToLower(), out var requirements))
         {
             return true;
         }
-        var _params = new MinEventParams();
-        _params.Self = GameManager.Instance.World.GetPrimaryPlayer();
-        _params.Biome = _params.Self.biomeStandingOn;
-        _params.ItemValue = _params.Self.inventory.holdingItemItemValue;
+        var primaryPlayer = GameManager.Instance.World.GetPrimaryPlayer();
+        if ( minEventContext == null )
+            minEventContext = primaryPlayer.MinEventContext;
+
+        minEventContext.Biome = primaryPlayer.biomeStandingOn;
+        
         foreach (var t in requirements)
         {
-            if (t.IsValid(_params) == false)
+            if (t.IsValid(minEventContext) == false)
             {
                 return false;
             }

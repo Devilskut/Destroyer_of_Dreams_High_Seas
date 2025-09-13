@@ -17,7 +17,7 @@ HughGotIT2,Trader Hugh
 trader_hub_main_01,Oil Platform
 UUSS_Arleigh_Burke_Destroyer_02,USS Arliegh Burke DDG 51
 
-drinkCanMegaCrush,Golden Swallows
+drinkCanMegaCrush,GoldensSwallow
 
 PerceptionDesc,"Perception Tree: Pack gives Pipe Rifle, Stone Spear, and a few pipe bombs with additional related magazines."
 StrengthDesc,"Strength Tree: Pack gives Shotgun, Wooden Club, and a Stone Sledge hammer with additional related magazines."
@@ -66,6 +66,21 @@ resourceAnimalFatDesc,"Fat can be eaten raw or used in cooking or other crafting
 
 drugAntibioticsDT,Antibiotics
 drugAntibioticsDTDesc,Antibiotics can cure infections.\n\nCan be crafted in a beaker at a campfire or at the chemistry station.
+
+perkPackMuleRank1Desc,Disorganized
+perkPackMuleRank1LongDesc,"Who has time to organize their stuff perfectly?\nCarry 5 more items without being encumbered.\nIncreases the crafting speed of items from your inventory by 10%.\nYour pack has a 5% chance to ignore physical damage when hit."
+
+perkPackMuleRank2Desc,Bag Lady
+perkPackMuleRank2LongDesc,"You know it's in there somewhere.\nCarry an additional 5 more items without being encumbered.\nIncreases the crafting speed of items from your inventory by 20%.\nYour pack has a 10% chance to ignore physical damage when hit."
+
+perkPackMuleRank3Desc,Neat and Tidy
+perkPackMuleRank3LongDesc,"You know exactly where everything is.\nCarry 5 additional items without being encumbered.\nIncreases the crafting speed of items from your inventory by 30%.\nYour pack has a 15% chance to ignore physical damage when hit."
+
+perkPackMuleRank4Desc,ShipShape
+perkPackMuleRank4LongDesc,"You just passed inspection, private.\nCarry 6 more items without being encumbered.\nIncreases the crafting speed of items from your inventory by 40%.\nYour pack has a 20% chance to ignore physical damage when hit."
+
+perkPackMuleRank5Desc,Pack Mule
+perkPackMuleRank5LongDesc,"Now you're showing off! You're either part mule or strongman.\nCarry 6 more items without being encumbered.\nIncreases the crafting speed of items from your inventory by 50%.\nYour pack has a 25% chance to ignore physical damage when hit."
 
 perkGreaseMonkeyRank1Desc,Wheely good
 perkGreaseMonkeyRank1LongDesc,Congratulations - you are now as smart as a primitive human!\n\nCraft wheels 33% cheaper.\n\nRepair kits are 10 percent more effective on vehicles.
@@ -350,7 +365,7 @@ dishongTowerBundleDesc,Starter items for the Destroyer challenge.,,
 
 Welcome,"Started The Destroyer Challenge"
 
-tutorialTipQuest01,"Welcome back aboard the Destroyer, Master Chief! \nThe Destroyer was returned to the docks after your last rescue mission from certain doom on the Aircraft Carrier Challenge, but it seems the zombies from the Oil Tanker reinfested the Destroyer. Now grab your supplies, eliminate the zombie threat, and build an UH-60 helicopter to seek refuge at a nearby [ff7f27]OIL RIG[-].  \n\nRULES: \n1. The ground around the Docks is [ff7f27]SPICY[-] and may [ff7f27]NOT[-] be used to support any structures, or to grow any crops, unless you can do this [ff7f27]WITHOUT[-] touching it.\n2. You may not mine or dig under the Destroyer or Docks.\n3. All default game settings, unless you are a seasoned gamer.\n4. It is recommended to have sleeper respawns set to [ff7f27]7 DAYS[-].\n5. You must survive until you are able to build a UH-60 and fly off the Destroyer to complete your [ff7f27]Final Mission [-].\n\nIf  [ff7f27]ANYONE[-] dies, the mission is over. [cd5c5c]PERMADEATH CHALLENGE[-] \n\nIf  [ff7f27]ANYONE[-] dies, the mission is [ff7f27] NOT[-] over, you may come back [FFFF00]injured[-]"
+tutorialTipQuest01,"Welcome back aboard the Destroyer, Master Chief! \nThe Destroyer was returned to the docks after your last rescue mission from certain doom on the Aircraft Carrier Challenge, but it seems the zombies from the Oil Tanker reinfested the Destroyer. Now grab your supplies and equip your biome mask, eliminate the zombie threat, and build an UH-60 helicopter to seek refuge at a nearby [ff7f27]OIL RIG[-].  \n\nRULES: \n1. The ground around the Docks is [ff7f27]SPICY[-] and may [ff7f27]NOT[-] be used to support any structures, or to grow any crops, unless you can do this [ff7f27]WITHOUT[-] touching it.\n2. You may not mine or dig under the Destroyer or Docks.\n3. All default game settings, unless you are a seasoned gamer.\n4. It is recommended to have sleeper respawns set to [ff7f27]7 DAYS[-].\n5. You must survive until you are able to build a UH-60 and fly off the Destroyer to complete your [ff7f27]Final Mission [-].\n\nIf  [ff7f27]ANYONE[-] dies the mission is over [cd5c5c]PERMADEATH CHALLENGE[-] [ff7f27] however[-], in a large group this is not practical so you may now come back [FFFF00]injured[-] to complete your mission. This is for bragging rights!"
 
 challenge_StartingDestroyer,"Welcome aboard Master Chief!"
 challenge_StartingDestroyer_subtitle,"Clear some zombies"

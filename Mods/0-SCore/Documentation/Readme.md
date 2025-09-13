@@ -51,6 +51,12 @@ Note: Most of this documentation is AI Generated with tweaks and corrections man
 
 [Weapon Camera Sway](../Features/WeaponCameraSway/ReadMe.md)
 
+[Item Degradation](Examples/ItemDegradation.md)
+
+[Workstation Degradation](Examples/WorkstationDegradation.md)
+
+[Additional Recipe Output](Examples/AdditionalRecipeOutput.md)
+
 # Patches
 [Animation](../Harmony/Animation/ReadMe.md)
 

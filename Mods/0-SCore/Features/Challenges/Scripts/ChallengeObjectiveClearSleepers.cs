@@ -36,6 +36,9 @@ namespace Challenges {
 
         private void Current_SleepersCleared(Vector3 pos)
         {
+            // Check all the requirements
+            if (!ChallengeRequirementManager.IsValid(Owner.ChallengeClass.Name)) return;
+            
             var primaryPlayer = GameManager.Instance.World.GetPrimaryPlayer();
             if (primaryPlayer == null) return;
             if (primaryPlayer.prefab == null) return;
@@ -47,6 +50,8 @@ namespace Challenges {
             var biomeName = GetBiomeOfPrefab(pos);
             if (!biomeName.EqualsCaseInsensitive(biomeName)) return;
             
+            if (!ChallengeRequirementManager.IsValid(Owner.ChallengeClass.Name)) return;
+
             Current++;
             if (Current < MaxCount) return;
 
@@ -82,7 +87,8 @@ namespace Challenges {
         public override BaseChallengeObjective Clone()
         {
             return new ChallengeObjectiveClearSleepers {
-                biome = this.biome
+                biome = this.biome,
+                LocalizationKey = LocalizationKey
             };
         }
     }

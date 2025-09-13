@@ -55,8 +55,7 @@ namespace Challenges {
 
         public override BaseChallengeObjective Clone() {
             return new ChallengeObjectiveCVar {
-                _cvarName = _cvarName
-                ,
+                _cvarName = _cvarName,
                 _descriptionOverride = _descriptionOverride
 
 

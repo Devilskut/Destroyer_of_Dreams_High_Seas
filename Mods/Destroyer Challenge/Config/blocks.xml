@@ -95,7 +95,31 @@
     <insertafter xpath="/blocks/block[@name]/property[1]">
 		<property name="CreativeMode" value="None"/>
 	</insertafter>
-	<set xpath="/blocks/block[@name]/property[@name='CreativeMode']/@value">None</set>
+	<set xpath="/blocks/block[@name]/property[@name='CreativeMode']/@value">None</set> 
+
+	<remove xpath="//block[@name='workbench']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='workbench']">
+		<drop event="Destroy" name="workbench" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='cementMixer']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='cementMixer']">
+		<drop event="Destroy" name="cementMixer" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='chemistryStation']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='chemistryStation']">
+		<drop event="Destroy" name="chemistryStation" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='forge']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='forge']">
+		<drop event="Destroy" name="forge" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
 
 	<set xpath="//block[@name='terrDirt']//drop[1]/@count">10</set>
 	
