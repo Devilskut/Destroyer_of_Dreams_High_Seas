@@ -121,6 +121,16 @@
 		<drop event="Destroy" name="forge" count="1" tag="salvageHarvest,perkJunkMiner"/>
 	</append>
 
+	<append xpath="/blocks/block[@name='tableSaw']">
+		<drop event="Harvest" name="resourceScrapIron" count="300" tag="allHarvest,perkJunkMiner"/>
+		<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+		<drop event="Harvest" name="resourceForgedIron" count="10" tag="salvageHarvest"/>
+		<drop event="Harvest" name="resourceSpring" count="2" tag="salvageHarvest"/>
+		<drop event="Harvest" name="resourceMechanicalParts" count="4" tag="salvageHarvest"/>
+		<drop event="Destroy" name="carBattery" count="1" tag="salvageHarvest,perkJunkMiner"/>
+		<drop event="Destroy" name="cementMixer" count="0" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
 	<set xpath="//block[@name='terrDirt']//drop[1]/@count">10</set>
 	
 	<set xpath="//block[@name='glassBulletproofMaster']/property[@name='LightOpacity']/@value">0</set>
@@ -139,10 +149,6 @@
 	<insertafter xpath="//block[@name='cntCollapsedCementMixer']//drop[5]">
 		<drop event="Harvest" name="ammoGasCan" count="50,500" tag="salvageHarvest"/>
 		<drop event="Destroy" name="smallEngine" count="1" prob="1" tag="salvageHarvest"/>	
-	</insertafter>
-	
-	<insertafter xpath="//block[@name='tableSaw']//property[@name='WorkstationIcon']">
-		<drop event="Destroy" name="carBattery" count="1" tag="salvageHarvest"/>	
 	</insertafter>
 	
 	<append xpath="/blocks/block[@name='workLightPOI']">

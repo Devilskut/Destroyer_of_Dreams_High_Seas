@@ -659,6 +659,7 @@
 		</entity_class>
 		<!-- *** ZOMBIE_SOLDIER_MICRO_RADIATED -->
 		<entity_class name="MicroTech" extends="zombieSoldierFeral">
+			<property name="MatColor" value="infernal"/>
 			<property name="UserSpawnType" value="Menu"/>
 			<property name="Tags" value="entity,zombie,walker,feral,radiated,zombieSoldier"/>
 			<property name="Mesh" value="@:Entities/Zombies/Soldier/ZSoldier.prefab"/>
@@ -756,6 +757,7 @@
 
 		<!-- *** ZOMBIE_SPIDER_FERAL-->
 		<entity_class name="FlippinMonkey" extends="zombieSpider">
+			<property name="MatColor" value="charged"/>
 			<property name="UserSpawnType" value="Menu"/>
 			<property name="Tags" value="entity,zombie,feral,spider"/>
 			<property name="Mesh" value="@:Entities/Zombies/Spider/ZSpiderFeral.prefab"/>
@@ -781,10 +783,10 @@
 				<passive_effect name="HealthMax" operation="base_set" value="50"/>
 			</effect_group>
 			
-			<!-- <effect_group name="Base Effects">
+		    <effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="50"/>
-				<triggered_effect trigger="onSelfFirstSpawn" target="self" action="AddBuff" buff="DKBomb"/>		
-			</effect_group> -->
+				<triggered_effect trigger="onSelfFirstSpawn" target="self" action="AddBuff" buff="DK_BOMB"/>		
+			</effect_group> 
 			
 		</entity_class>
 	</append>
