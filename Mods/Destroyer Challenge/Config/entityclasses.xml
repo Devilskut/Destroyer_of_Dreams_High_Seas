@@ -253,6 +253,11 @@
 		<property name="DishongLootDropEntityClass" value="DishongLootContainerBikerLoot"/>
 		<property name="DishongLootDropProb" value="1"/>
 	</append>
+
+	<append xpath="//entity_class[starts-with(@name, 'zombieBurnt')]">
+		<property name="DishongLootDropEntityClass" value="DishongLootContainerMaleHazmatLoot"/>
+		<property name="DishongLootDropProb" value="1"/>
+	</append>
   
   <append xpath="/entity_classes">
 	<entity_class name="DishongLootContainer">
@@ -683,7 +688,7 @@
 				<passive_effect name="PhysicalDamageResist" operation="base_set" value="50"/>
 				<!--<passive_effect name="EntityDamage" operation="perc_add" value="0"/>-->
 				<!-- Feral damage -->
-				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="1"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value=".5"/>
 				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
 			</effect_group>
 		</entity_class>

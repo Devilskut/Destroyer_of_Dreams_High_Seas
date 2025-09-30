@@ -27,7 +27,6 @@
 	<removeattribute xpath="//lootcontainer/@destroy_on_close" />
 	<setattribute xpath="//lootcontainer[@name='junk']" name="destroy_on_close">empty</setattribute>
 	<setattribute xpath="//lootcontainer[@name='laundryBasket']" name="destroy_on_close">empty</setattribute>
-	<!-- <setattribute xpath="//lootcontainer[@name='birdNest']" name="destroy_on_close">empty</setattribute> -->
 	<setattribute xpath="//lootcontainer[@name='ammoPileSmall']" name="destroy_on_close">empty</setattribute>
 	<setattribute xpath="//lootcontainer[@name='ammoPileMed']" name="destroy_on_close">empty</setattribute>
 	<setattribute xpath="//lootcontainer[@name='ammoPileLarge']" name="destroy_on_close">empty</setattribute>
@@ -55,8 +54,7 @@
 	<remove xpath="//lootgroup[@name='groupMailbox01']//item[@name='resourcePaper']" />
 	<remove xpath="//lootgroup[@name='groupMailbox02']//item[@name='resourcePaper']" />
 	<remove xpath="//lootgroup[@name='groupCrackabookShelves01']//item[@name='resourcePaper']" />
-	<remove xpath="//lootgroup[@name='groupFileCabinet01']//item[@name='resourcePaper']" />
-	<!-- <remove xpath="//lootgroup[@name='groupMoPowerShelves']//item[@name='resourcePaper']" /> -->	
+	<remove xpath="//lootgroup[@name='groupFileCabinet01']//item[@name='resourcePaper']" />	
 	
 	<!-- changes to cement mixer loot -->
     <set xpath="/lootcontainers/lootgroup[@name='groupCementMixerLoot']">
@@ -191,17 +189,7 @@
 			<item name="bookWasteTreasuresHoney"/>
 			<item name="bookWasteTreasuresSinks"/>
 			<item name="bookWasteTreasuresWater"/>
-		</lootgroup>	
-			
-		<!-- <lootgroup name="groupNightStalkerBooks">
-			<item name="bookNightStalkerArchery"/>
-			<item name="bookNightStalkerBlades"/>
-			<item name="bookNightStalkerSilentNight"/>
-			<item name="bookNightStalkerSlumberParty"/>
-			<item name="bookNightStalkerStealthDamage"/>
-			<item name="bookNightStalkerThiefAdrenaline"/>
-			<item name="bookNightStalkerTwilightThief"/>
-		</lootgroup> -->	
+		</lootgroup>		
 			
 		<lootgroup name="groupFiremanBooks">
 			<item name="bookFiremansAlmanacSpeed"/>
@@ -348,7 +336,6 @@
 			<item name="knucklesSkillMagazineDT" prob=".1" force_prob="true" tags="KnLoot"/>
 			<item group="groupShotgunBooks" loot_prob_template="veryLow" force_prob="true" tags="SGLoot"/>
 			<item group="groupKnucklesBooks" loot_prob_template="veryLow" force_prob="true" tags="KnLoot"/>			
-			<!-- <item group="groupNightStalkerBooks" loot_prob_template="veryLow" force_prob="true" tags="BlLoot"/> -->
 		</lootgroup>
 		
 		<lootgroup name="groupRadThugLoot" count="all">
@@ -358,7 +345,6 @@
 			<item name="resourceHeadlight" count="1" prob=".8" force_prob="true"/>
 			<item group="groupShotgunBooks" loot_prob_template="low" force_prob="true" tags="SGLoot"/>
 			<item group="groupKnucklesBooks" loot_prob_template="low" force_prob="true" tags="KnLoot"/>			
-			<!-- <item group="groupNightStalkerBooks" loot_prob_template="low" force_prob="true" tags="BlLoot"/> -->
 		</lootgroup>
 		
 		<lootgroup name="groupJanitorLoot" count="all">
@@ -465,17 +451,19 @@
 			<item name="resourceAnimalFat" prob=".1" force_prob="true"/>
 			<item group="groupLooterBooks" prob=".3" force_prob="true"/>
 		</lootgroup>
-		
+
 		<lootgroup name="groupHazmatLoot" count="all">
-			<item name="resourceBone" count="4"/>
-			<item name="resourcePotassiumNitratePowder" count="5"/>
+			<item name="resourceBone" count="2,5" prob=".13" force_prob="true"/>
+			<item name="resourceCoal" count="2,5" prob=".13" force_prob="true"/>
+			<item name="resourcePotassiumNitratePowder" count="2,5" prob=".13" force_prob="true"/>
+			<item group="groupFiremanBooks" loot_prob_template="low" force_prob="true" tags="SHLoot"/>
 		</lootgroup>
-		
+
 		<lootgroup name="groupLumberjackLoot" count="all">
 			<item name="harvestingToolsSkillMagazineDT" prob=".13" force_prob="true" tags="HTLoot"/>
 			<item name="workstationSkillMagazineDT" prob=".1" force_prob="true" tags="WSLoot"/>
-			<item name="resourceSnowBall" count="5"/>
-			<item name="resourceLockPick" count="2"/>
+			<item name="resourceSnowBall" count="1" prob=".13" force_prob="true"/>
+			<item name="resourceLockPick" count="1,5" prob=".13" force_prob="true"/>
 		</lootgroup>
 		
 		<lootgroup name="groupMutatedLoot" count="all">
