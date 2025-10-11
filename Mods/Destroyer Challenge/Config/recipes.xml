@@ -185,9 +185,7 @@
   <set xpath="/recipes/recipe[@name='plantedAloe1']/ingredient/@count">2</set>
   
   <!-- removes crafting of non-essential vehicles & parts -->
-  <!-- <remove xpath="//recipe[@name='vehicle4x4TruckAccessories']"/> 
-  <remove xpath="//recipe[@name='vehicle4x4TruckChassis']"/>
-  <remove xpath="//recipe[@name='vehicle4x4TruckPlaceable']"/> -->
+  
   <remove xpath="//recipe[@name='vehicleBicycleChassis']"/>
   <remove xpath="//recipe[@name='vehicleBicyclePlaceable']"/>
   <remove xpath="//recipe[@name='vehicleMinibikeChassis']"/>
@@ -197,6 +195,5 @@
   <remove xpath="//recipe[@name='vehicleMotorcycleHandlebars']"/>
   <remove xpath="//recipe[@name='vehicleMotorcyclePlaceable']"/>
   <remove xpath="//recipe[@name='bedrollBlockVariantHelper']"/>
-  <!-- <remove xpath="//recipe[@name='bed02']"/> -->
   <remove xpath="//recipe[@name='keystoneBlock']"/>
 </configs>

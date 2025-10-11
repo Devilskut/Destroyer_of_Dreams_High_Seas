@@ -121,6 +121,102 @@
 		<drop event="Destroy" name="forge" count="1" tag="salvageHarvest,perkJunkMiner"/>
 	</append>
 
+	<remove xpath="//block[@name='dartTrap']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='dartTrap']">
+		<drop event="Destroy" name="dartTrap" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='electricfencepost']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='electricfencepost']">
+		<drop event="Destroy" name="electricfencepost" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='flamethrowerTrap']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='flamethrowerTrap']">
+		<drop event="Destroy" name="flamethrowerTrap" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='bladeTrap']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='bladeTrap']">
+		<drop event="Destroy" name="bladeTrap" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='autoTurret']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='autoTurret']">
+		<drop event="Destroy" name="autoTurret" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='shotgunTurret']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='shotgunTurret']">
+		<drop event="Destroy" name="shotgunTurret" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='batterybank']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='batterybank']">
+		<drop event="Destroy" name="batterybank" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='solarbank']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='solarbank']">
+		<drop event="Destroy" name="solarbank" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='generatorbank']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='generatorbank']">
+		<drop event="Destroy" name="generatorbank" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='electricwirerelay']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='electricwirerelay']">
+		<drop event="Destroy" name="electricwirerelay" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='switch']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='switch']">
+		<drop event="Destroy" name="switch" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='pressureplate']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='pressureplate']">
+		<drop event="Destroy" name="pressureplate" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='pressureplateLong']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='pressureplateLong']">
+		<drop event="Destroy" name="pressureplateLong" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='tripwirepost']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='tripwirepost']">
+		<drop event="Destroy" name="tripwirepost" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='motionsensor']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='motionsensor']">
+		<drop event="Destroy" name="motionsensor" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='electrictimerrelay']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='electrictimerrelay']">
+		<drop event="Destroy" name="electrictimerrelay" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+	
 	<set xpath="//block[@name='terrDirt']//drop[1]/@count">10</set>
 	
 	<set xpath="//block[@name='glassBulletproofMaster']/property[@name='LightOpacity']/@value">0</set>

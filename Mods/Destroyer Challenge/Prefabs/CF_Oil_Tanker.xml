@@ -14,7 +14,7 @@
   <property name="SleeperVolumeSize" value="17, 3, 15#20, 5, 15#12, 5, 17#9, 2, 14#31, 3, 11#31, 2, 9#13, 3, 15#15, 3, 24#43, 3, 13#42, 4, 10#15, 4, 25#18, 5, 25#15, 3, 23#23, 3, 26#19, 4, 22#14, 4, 11#15, 3, 15#15, 3, 15#8, 3, 19#18, 4, 21#33, 4, 35#24, 3, 22" />
   <property name="SleeperVolumeStart" value="50, 27, 11#49, 22, 10#55, 17, 10#59, 16, 9#42, 3, 8#41, 4, 20#47, 13, 11#32, 13, 6#35, 9, 17#35, 8, 7#69, 13, 7#85, 13, 7#127, 14, 7#103, 14, 6#142, 13, 8#154, 5, 7#107, 7, 11#90, 7, 9#61, 13, 8#161, 16, 8#169, 3, 1#146, 9, 7" />
   <property name="SleeperVolumeGroupId" value="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
-  <property name="SleeperVolumeGroup" value="animalZombieVultureRadiated,5,6,GroupZomSoldier,9,10,GroupAbandonedHouse,5,6,GroupGenericZombie,5,6,GroupZomBadass,9,10,GroupSpecialInfected,9,10,zombieBusinessManFeral,7,8,GroupLabWorker,8,9,ZomUtilityWorker,9,10,GroupAbandonedHouse,9,10,zombieJanitorFeral,5,6,zombieScreamer,4,5,zombieSpiderFeral,5,6,zombiePartyGirlFeral,2,3,zombieSoldierFeral,3,4,zombieInmateRadiated,5,6,zombieMutated,5,6,zombieSoldierRadiated,5,6,zombieNurseFeral,5,6,zombieUtilityWorkerFeral,5,6,GroupGenericZombie,5,6,GroupSpecialInfected,9,10" />
+  <property name="SleeperVolumeGroup" value="animalZombieVultureRadiated,5,6,GroupZomSoldier,8,9,GroupAbandonedHouse,5,6,GroupGenericZombie,5,6,GroupZomBadass,9,10,GroupSpecialInfected,9,10,GroupBikerBar,5,6,GroupLabWorker,8,9,ZomUtilityWorker,9,10,GroupAbandonedHouse,8,9,zombieJanitorFeral,5,6,zombieScreamer,4,5,zombieSpiderFeral,5,6,zombiePartyGirlFeral,2,3,zombieSoldierFeral,3,4,zombieInmateRadiated,3,4,zombieMutated,5,6,zombieSoldierRadiated,5,6,GroupHospital,5,6,zombieUtilityWorkerFeral,5,6,GroupGenericZombie,5,6,GroupSpecialInfected,8,9" />
   <property name="SleeperIsLootVolume" value="False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False" />
   <property name="SleeperIsQuestExclude" value="False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False" />
   <property name="SleeperVolumeFlags" value="0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" />
@@ -78,23 +78,23 @@
   </property>
   <property class="Stats">
     <property name="LightsVolume" value="13752.85" />
-    <property name="TotalVertices" value="2508099" />
-    <property name="TotalTriangles" value="1177481" />
+    <property name="TotalVertices" value="2512904" />
+    <property name="TotalTriangles" value="1177098" />
     <property class="BlockEntities">
-      <property name="Vertices" value="1821478" />
-      <property name="Triangles" value="674438" />
+      <property name="Vertices" value="1824892" />
+      <property name="Triangles" value="673455" />
     </property>
     <property class="ChunkMeshes0">
-      <property name="Vertices" value="655561" />
-      <property name="Triangles" value="455797" />
+      <property name="Vertices" value="656960" />
+      <property name="Triangles" value="456417" />
     </property>
     <property class="ChunkMeshes1">
       <property name="Vertices" value="0" />
       <property name="Triangles" value="0" />
     </property>
     <property class="ChunkMeshes2">
-      <property name="Vertices" value="1424" />
-      <property name="Triangles" value="770" />
+      <property name="Vertices" value="1432" />
+      <property name="Triangles" value="774" />
     </property>
     <property class="ChunkMeshes3">
       <property name="Vertices" value="1032" />
@@ -105,8 +105,8 @@
       <property name="Triangles" value="0" />
     </property>
     <property class="ChunkMeshes5">
-      <property name="Vertices" value="28604" />
-      <property name="Triangles" value="45960" />
+      <property name="Vertices" value="28588" />
+      <property name="Triangles" value="45936" />
     </property>
   </property>
 </prefab>
