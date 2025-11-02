@@ -1520,6 +1520,25 @@
 	</insertafter>
 
 	<append xpath="/items">
+
+		<item name="Mission_1_Find Blueprint">
+			<property name="Extends" value="adminQuestTicketMaster"/>
+			<property name="DescriptionKey" value="Mission_1_Find BlueprintDesc"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIconTint" value="00ff00"/>
+			<property class="Action0">
+				<property name="QuestGiven" value="quest_DestroyerChallenge"/>
+			</property>
+		</item>
+		<item name="Mission_2_Fort 666">
+			<property name="Extends" value="adminQuestTicketMaster"/>
+			<property name="DescriptionKey" value="Mission_2_Fort 666Desc"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIconTint" value="ff00bf"/>
+			<property class="Action0">
+				<property name="QuestGiven" value="quest_DestroyerChallenge08"/>
+			</property>
+		</item>
 			
 		<!-- ARMOR SETS -->
 		

@@ -55,6 +55,10 @@ NerdDesc,"Head-XP Gain,Outfit-Magazing point chance,Gloves-Baton Damage+,Boots-F
 
 RaiderDesc,"Head-Stun Resist,Outfit-Crit Heal,Gloves-Melee Damage+,Boots-Fall Distance+, Bonus-Crit Resist+."
 
+Mission_1_Find BlueprintDesc, "Did you run to far away or die trying?"
+
+Mission_2_Fort 666Desc, "Did you run to far away or die trying?"
+
 resourceCoalDesc,"A great fuel source and a core ingredient for gunpowder.\n\nCan be made from wood in a campfire"
 resourceAcidDesc,A resource used in crafting recipes.\n\nCan be crafted in beaker at a campfire or at the chemistry station.
 
@@ -374,6 +378,7 @@ challenge_StartingDestroyer_description,"Grab your gear and Let's Go clear our w
 quest_DestroyerChallenge,"Find Blueprint" 
 quest_DestroyerChallenge_subtitle,"The plans changed"
 quest_DestroyerChallenge_description,"Since you already know your orders lets get working on finding that blueprint. "
+quest_DestroyerChallenge_offer,"Since you already know your orders lets get working on finding that blueprint. "
 
 quest_DestroyerChallenge01,"Gather "
 quest_DestroyerChallenge01_subtitle,""
@@ -406,6 +411,8 @@ quest_DestroyerChallenge07_description,"Place Starting helicopter, with the part
 quest_DestroyerChallenge08,"Time to blow SHIT up!"
 quest_DestroyerChallenge08_subtitle,"Head to Fort 666, and annihilate some zombies."
 quest_DestroyerChallenge08_description,"You might want to bring some heavy ammo and weaponry to give yourself a fighting chance."
+quest_DestroyerChallenge08_offer,"Head to Fort 666, and annihilate some zombies."
+
 
 quest_DestroyerChallenge09,"Final Mission?"
 quest_DestroyerChallenge09_subtitle,"Hope you brought enough OIL."

@@ -96,7 +96,7 @@
 			<property name="icon" value="ui_game_symbol_map_trader"/>
 			<property name="category_key" value="quest"/>
 			<property name="difficulty_tier" value="5"/>
-			<property name="offer_key" value="quest_DestroyerChallenge"/>
+			<property name="offer_key" value="quest_DestroyerChallenge_offer"/>
 			<property name="login_rally_reset" value="true"/>
 			<property name="extra_tags" value="" param1="extra_tags"/>
 			<property name="shareable" value="true"/>

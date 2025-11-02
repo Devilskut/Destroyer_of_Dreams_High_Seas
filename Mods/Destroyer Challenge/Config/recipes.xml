@@ -1,5 +1,13 @@
 <configs>
   <append xpath="/recipes">
+	  
+	  <recipe name="Mission_1_Find Blueprint" count="1" craft_time="10" >
+		  <ingredient name="casinoCoin" count="500" />
+	  </recipe>
+
+	  <recipe name="Mission_2_Fort 666" count="1" craft_time="10" >
+		  <ingredient name="casinoCoin" count="1200" />
+	  </recipe>
     
     <recipe name="resourceCoal" count="1" craft_area="campfire" craft_time="10" >
       <ingredient name="resourceWood" count="1"/>
