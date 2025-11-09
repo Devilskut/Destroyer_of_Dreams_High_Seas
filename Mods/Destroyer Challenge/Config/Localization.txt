@@ -347,7 +347,7 @@ loadingTipAircraft9_title,Lost Are We?
 loadingTipAircraft9,"If you are lost on where to travel to next, there may have been a kind soul who left directions in the quest instructions. Let's be real though, men neither ask for directions nor read instructions!"
 
 loadingTipAircraft10_title,Special Thanks
-loadingTipAircraft10,"Thanks to w00kien00kie for the custom code, Khelldon for the custom menu, Frantic_Dan for UI Ideas.
+loadingTipAircraft10,"Thanks to w00kien00kie for the custom code, Khelldon for the custom menu, Frantic_Dan for UI Ideas."
 
 loadingTipAircraft11_title,Horde Night
 loadingTipAircraft11,"Horde nights, better suck it up, buttercup."
@@ -380,39 +380,22 @@ quest_DestroyerChallenge_subtitle,"The plans changed"
 quest_DestroyerChallenge_description,"Since you already know your orders lets get working on finding that blueprint. "
 quest_DestroyerChallenge_offer,"Since you already know your orders lets get working on finding that blueprint. "
 
-quest_DestroyerChallenge01,"Gather "
-quest_DestroyerChallenge01_subtitle,""
-quest_DestroyerChallenge01_description," ."
+quest_DestroyerChallenge02,"Gather UH-60 Parts 1/3"
+quest_DestroyerChallenge02_subtitle,"UH-60 Parts"
+quest_DestroyerChallenge02_description,"Gather parts to craft UH-60."
 
-quest_DestroyerChallenge02,"UH-60 Parts 1/3"
-quest_DestroyerChallenge02_subtitle,"Build  UH-60 Accessories"
-quest_DestroyerChallenge02_description,"Gather parts and craft UH-60 Accessories."
-
-quest_DestroyerChallenge03,"Gather AH-60 Parts 2/3"
-quest_DestroyerChallenge03_subtitle,"Build UH-60 Chassis"
-quest_DestroyerChallenge03_description,"Gather parts and craft UH-60 Chassis."
-
-quest_DestroyerChallenge04,"Gather UH-60 Parts 3/3"
-quest_DestroyerChallenge04_subtitle,"Build UH-60 Helicopter"
-quest_DestroyerChallenge04_description,"Gather parts and craft UH-60 Helicopter."
+quest_DestroyerChallenge03,"Gather UH-60 Parts 2/3"
+quest_DestroyerChallenge03_subtitle,"UH-60 Parts"
+quest_DestroyerChallenge03_description,"Gather parts to craft UH-60."
 
 quest_DestroyerChallenge05,"Gather UH-60 Parts 3/3 "
-quest_DestroyerChallenge05_subtitle,"Build UH-60 helicopter"
+quest_DestroyerChallenge05_subtitle," UH-60 helicopter"
 quest_DestroyerChallenge05_description,"Gather parts and craft UH-60 helicopter"
 
-quest_DestroyerChallenge06,"Apache Impact Driver"
-quest_DestroyerChallenge06_subtitle,"Craft  Apache Impact Driver"
-quest_DestroyerChallenge06_description,"Craft an Apache Impact Driver in a workbench."
-
-quest_DestroyerChallenge07,"USE Apache Impact Driver"
-quest_DestroyerChallenge07_subtitle,"Place, Starting helicopter "
-quest_DestroyerChallenge07_description,"Place Starting helicopter, with the parts crafted USE the Apache Impact Driver to upgrade to your new AH-64 helicopter!"
-
-quest_DestroyerChallenge08,"Time to blow SHIT up!"
-quest_DestroyerChallenge08_subtitle,"Head to Fort 666, and annihilate some zombies."
+quest_DestroyerChallenge08,"Night OPS!"
+quest_DestroyerChallenge08_subtitle,"[FFFF00]FORT 666 Night OPS[-]"
 quest_DestroyerChallenge08_description,"You might want to bring some heavy ammo and weaponry to give yourself a fighting chance."
-quest_DestroyerChallenge08_offer,"Head to Fort 666, and annihilate some zombies."
-
+quest_DestroyerChallenge08_offer,"Head to Fort 666, and annihilate some zombies night mission."
 
 quest_DestroyerChallenge09,"Final Mission?"
 quest_DestroyerChallenge09_subtitle,"Hope you brought enough OIL."

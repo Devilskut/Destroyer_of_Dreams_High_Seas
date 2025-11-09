@@ -133,14 +133,9 @@
 			
 			<objective type="POIStayWithin">
 				<property name="phase" value="3"/>
-				<property name="radius" value="75"/>
+				<property name="radius" value="125"/>
 			</objective>
 			
-			<objective type="POIStayWithin">
-				<property name="phase" value="3"/>
-				<property name="radius" value="25"/>
-			</objective>
-
 			<action type="UnlockPOI" >
 				<property name="phase" value="4"/>
 			</action>
@@ -215,10 +210,7 @@
 			<objective type="FetchKeep" id="resourceMechanicalParts" value="50" phase="1"/>
 			<objective type="FetchKeep" id="resourceDuctTape" value="40" phase="1"/>
 			<objective type="FetchKeep" id="resourceMetalPipe" value="50" phase="1"/>
-
-			<objective type="Craft" id="vehicleUH60chassis" value="1" phase="2"/>
-			<objective type="Craft" id="vehicleUH60accessories" value="1" phase="2"/>
-			
+	
 			<reward type="Exp" value="5000"/>
 			<reward type="Quest" id="quest_DestroyerChallenge05"/>
 		</quest>
@@ -242,7 +234,7 @@
 			<objective type="FetchKeep" id="vehicleWheels" value="3" phase="1"/>
 			<objective type="FetchKeep" id="vehicleUH60accessories" value="1" phase="1"/>
 			
-			<objective type="Craft" id="vehicleUH60placeable" value="1" phase="2"/>
+			<objective type="FetchKeep" id="vehicleUH60placeable" value="1" phase="2"/>
 
 			<reward type="Exp" value="2500"/>
 			<reward type="Quest" id="quest_DestroyerChallenge08"/>
@@ -263,8 +255,8 @@
 				<action type="TrackQuest"/>
 
 				<action type="ShowMessageWindow">
-					<property name="title" value="[FFFF00]FORT 666[-]"/>
-					<property name="message" value="Our [FFFF00]FORT 666[-] has come under [FF0000]ASSAULT[-]! This abondoned air strip is FULL of some of the nastiest zombies! NOW, grab all the [FFFF00]AMMO AND PROVISIONS[-]you can gather and get this bird [FF0000]IN THE AIR![-] "/>
+					<property name="title" value="[FFFF00]FORT 666 Night OPS[-]"/>
+					<property name="message" value="Our [FFFF00]FORT 666[-] has come under [FF0000]ASSAULT[-]! This abandoned air strip is FULL of some of the nastiest zombies! NOW, grab all the [FFFF00]AMMO AND PROVISIONS[-] you can gather and get this bird [FF0000]IN THE AIR![-] "/>
 					<property name="delay" value="2"/>
 				</action>
 
