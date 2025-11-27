@@ -24,9 +24,6 @@
   <property name="ThemeTags" value="wildernesspoi" />
   <property name="QuestTags" value="clear, fetch" />
   <property class="IndexedBlockOffsets">
-    <property class="Rally">
-      <property name="0" value="22, 3, 18" />
-    </property>
     <property class="challenge_polymers">
       <property name="0" value="156, 13, 23" />
       <property name="1" value="157, 13, 23" />
@@ -67,6 +64,9 @@
       <property name="4" value="65, 5, 20" />
       <property name="5" value="65, 5, 23" />
     </property>
+    <property class="Rally">
+      <property name="0" value="50, 13, 8" />
+    </property>
     <property class="FetchContainer">
       <property name="0" value="159, 6, 28" />
       <property name="1" value="160, 7, 28" />
@@ -78,15 +78,15 @@
   </property>
   <property class="Stats">
     <property name="LightsVolume" value="13752.85" />
-    <property name="TotalVertices" value="2512904" />
-    <property name="TotalTriangles" value="1177098" />
+    <property name="TotalVertices" value="2527794" />
+    <property name="TotalTriangles" value="1181938" />
     <property class="BlockEntities">
-      <property name="Vertices" value="1824892" />
-      <property name="Triangles" value="673455" />
+      <property name="Vertices" value="1839748" />
+      <property name="Triangles" value="678327" />
     </property>
     <property class="ChunkMeshes0">
-      <property name="Vertices" value="656960" />
-      <property name="Triangles" value="456417" />
+      <property name="Vertices" value="656994" />
+      <property name="Triangles" value="456385" />
     </property>
     <property class="ChunkMeshes1">
       <property name="Vertices" value="0" />

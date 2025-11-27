@@ -123,7 +123,8 @@ AH-64ApacheHelicopter2Desc,Do not place this item until all parts are crafted fo
 
 meleeToolSalvageT3ImpactDriverAC,Apache Impact Driver
 
-meleeWpnBladeT1HuntingKnife,Devil's Blade
+meleeWpnBladeT1HuntingKnife,Prison shank
+meleeWpnBladeT3Machete,Devils' Blade
 gunBowT0PrimitiveBow,Techie's Silent Sentinel
 gunHandgunT1Pistol,Angelacus' Water Pistol
 
@@ -231,9 +232,9 @@ zombieNurse,KatsPurr
 zombieNurseFeral,Feral Katspurr
 zombieNurseRadiated,Radiated KatsPurr
 
-zombieYo,Sarcoth
-zombieYoFeral,Feral Sarcoth
-zombieYoRadiated,Radiated Sarcoth
+zombieYo,PitchieB
+zombieYoFeral,Feral PitchieB
+zombieYoRadiated,Radiated PitchieB
 
 zombieTomClark,Devilskut
 zombieTomClarkRadiated,Radiated Devilskut
@@ -259,12 +260,10 @@ zombieSteve,Frantic_Dan
 zombieSteveFeral,Feral Frantic_Dan
 zombieSteveRadiated,Radiated Frantic_Dan
 
-zombieSteveCrawler,PitchieB
-zombieSteveCrawlerFeral,Feral PitchieB
+zombieSteveCrawler,LT Dan
+zombieSteveCrawlerFeral,Feral LT Dan
 
-animalBossGrace,SpeedyPig69
-
-animalhostilechicken,RoadRunner
+animalChicken,Nugget
 
 animalWolf,Korbulas
 animalDireWolf,Raging Korbulas
@@ -272,7 +271,7 @@ animalDireWolf,Raging Korbulas
 animalRabbit,Killer Bunny
 animalZombieBear,Reclining Gamer
 
-animalZombieVulture,Phancy
+animalZombieVulture,Vulturegeist
 animalZombieVultureRadiated,Spicy Dragonfly
 
 zombieWightFeral,Feral DeathAngel
@@ -303,9 +302,9 @@ zombieScreamer,MoonLuna
 zombieScreamerFeral,Feral MoonLuna
 zombieScreamerRadiated,Radiated MoonLuna
 
-zombieSkateboarder,TylerGMS
-zombieSkateboarderFeral,Feral TylerGMS
-zombieSkateboarderRadiated,Radiated TylerGMS
+zombieSkateboarder,Capp00
+zombieSkateboarderFeral,Feral Capp00
+zombieSkateboarderRadiated,Radiated Capp00
 
 zombieFatHawaiian,Shrader
 zombieFatHawaiianFeral,Feral Shrader
