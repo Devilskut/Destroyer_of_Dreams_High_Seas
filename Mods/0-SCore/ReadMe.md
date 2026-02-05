@@ -32,6 +32,327 @@ This release of 0-SCore introduces significant enhancements across several core 
 
 
 [ Change Log ]
+Version: 2.5.10.2106
+
+	[ Event On Sleeper Volume Cleared Update ]
+		- Fixed a possible null reference when a zombie from a sleeper volume left the POI.
+
+Version: 2.5.2.1743 ( Experimental )
+
+	[ Update ]
+		- Updated calls to radius to radiussq() for buff radius
+		- Updated SCore's Requirement Challenge groups
+		- Changed TileEntityDewCollectors to target TileEntityCollector
+		- Updated tooltip for Advanced Item Repairs, which were using labels no longer available.
+
+
+Version: 2.4.73.2102
+	[ Troubleshooting ]
+		- Added a patch to EntityGroup.IsEnemyGroup to add more error checking, in case an entity group or entity isn't valid.
+			- This would throw a null reference with no hint on what the error was.
+
+	[ Challenges ]
+		- CraftWithIngredients - Now supports localization of the ingredient string
+
+	[ Quest ]
+		- FetchByTags now properly passes the Localization Description
+
+
+Version: 2.4.62.1047
+	[ EntityNPCBandit ]
+		- Merged fix for null reference on bodyDamage by Aevum11.
+
+	[ EntityAliveSDX ]
+		- Many fixes and code adjustments to preserve NPC's stats, inventory, and preferred weapon when pickup/deploy
+		- Fixed issue where items with mods would come back without mods.
+		- Added some safe guards to end of stream errors
+
+Version: 2.4.15.809
+	[ Challenges ]
+		- Fixed an issue where block destroyed by fire was not registering in SP
+
+	[ Quest ]
+		- Removed a debug log from the QuestActionTeleport
+	
+	[ Quality ]
+		- Added a patch so that the Trader Template code in traders.xml is parsed correctly for higher qualities.
+
+	[ Dynamic Music ]
+		- Added a patch to log if trader ID exceeds maximum allowed.
+
+Version: 2.4.11.1222
+
+	[ Quest ]
+		- Added new quest Action to teleport the player.
+		- This action relies on the Objectives for GotoPOISDX to set the position.
+
+           <objective type="GotoPOISDX, SCore" value="200-8000" phase="1">
+                <property name="completion_distance" value="50"/>
+                <property name="PrefabName" value="trader_jen"/>
+            </objective>
+
+		- By default, the teleport position will be in the SW corner of the POI.
+		- If the block property is set, it will attempt to teleport you to that block within the POI.
+		- If the blocK_tag property is set, and a block with the Tags is within the POI, that will be used as a position.
+		- If offset is specified, the position, regardless of how it was set, will be applied to the position.
+		- If the offset is 0,0,0, a random position will be calculated within 2 blocks of the position.
+        	<action type="Teleport, SCore">
+                <property name="block" value="radioHam" />
+                <property name="phase" value="1" />
+                <property name="delay" value="5" />
+                <property name="offset" value="0,0,0" />
+            </action>
+
+		- Notes:
+			- A delay is higly recommend to be set, even if it's 1. The objective will set up the initial position, and needs 
+				time to be calculated. Without the delay, the position may not be set in time for the teleport.
+			- The GotoPOISDX and Teleport Action should be in the same phase.
+			- In the case of a new location, blocks may not be in place yet to calculate an offset.
+				- This will have the effect that the SW corner will be used as a position.
+				- A potential work around is as follows, which sends the player, allows the world to rebuild, then move the player again.
+				   <action type="Teleport, SCore">
+						<property name="phase" value="1" />
+						<property name="delay" value="5" />
+						<property name="offset" value="0,0,0" />
+					</action>
+					<action type="Teleport, SCore">
+						<property name="block" value="radioHam" />
+						<property name="phase" value="1" />
+						<property name="delay" value="6" />
+						<property name="offset" value="0,0,0" />
+					</action>
+
+Version: 2.4.9.835
+	[ Quality ]
+		- Fixed an issue where some items would not have a quality when they should have, when not using the quality feature.
+
+Version: 2.4.8.1712
+	[ Item Actions ]
+		- Disabled adding additional actions to items.
+		- This was done in the past to allow NPCs to use more creative actions, but was never used.
+
+	[ Trader Placable ]
+		- Removed Debug statement.
+
+	[ Sleepers ]
+		- Fixed an issue with the Challenge for Clearing Sleepers that was also clearing quests.
+
+	
+
+Version: 2.4.7.833
+	[ Challenges ]
+		- Fixed an issue with Clear Challenges not properly reporting on dedi
+		- Fixed an issue where blocks destroyed by fire was not properly reporting on dedi.
+
+	[ Fire Manager ]
+		- Added a different call to trigger an event for a block destroyed by fire ( for challenge support ).
+		- Fixed an issue where blocks were not being properly destroyed on dedi.
+		- Fixed an issue with fire particles not spreading on dedi.
+
+	[ MinEvent ]
+		- Updated MinEventActionReplaceMaterial to take a comma delimited list of replace_materials to randomize them.
+
+	[ Item Degradation ]
+		- Fixed an issue where worn equipment wasn't properly breaking.
+
+	[ Quality ]
+		- Added new entry to blocks.xml to control the increase/decrease tiers for quality, called "QualityStage".
+		- Default is set to 25.
+		- When using quality tiers, the quality selector will increment up and down based on that value.
+		- Fixed an issue where quality seemed random when crafting, and not the selected crafting.
+
+	[ Food Spoilage ]	
+		- Fixed an issue with quality colours when using the extended quality.
+
+	[ Trader Areas ]
+		- Added a new patch to allow properly tagged blocks to be placed within a trader area.
+		- If a block has the tag "traderPlaceable", you may place it within the trader area.
+		- Blocks with this tag can also be repaired, damaged, etc.
+		- This patch does not rely on trader protection being off, or on.
+
+Version: 2.4.2.1406
+	[ Fire Manager ]
+		- Fixed (again) the fire manager from not breaking blocks on a dedicated server.
+
+	[ Blocks ]
+		- Fixed a null reference in a patch for CanPlaceBlockAt() when in Prefab editor
+
+	[ EntityAlive SDX ]
+		- Added a patch to try to catch the Null reference from GetQuestList()
+		- Updated the OnEntityActivated() to go through vanilla hooks instead of duplicated code.
+
+	[ XUiC Combine Grid ]
+		- Added code donated by dwallorde
+		- Reference :  controller="CombineGridMod, SCore"
+	
+	[ Game Events ]
+		- Added RequirementHasFailedQuest.
+			<action_sequence name="quest_XYZ_restart">
+				<requirement type="HasFailedQuestSDX, SCore" value="quest_XYZ" />
+				<action type="AddQuest" quest="quest_XYZ" />
+			</action_sequence>
+
+Version: 2.3.40.1113
+	[ Challenges ]
+		- Updated ClearedSleeper challenge to use the right hook, to fix possible dedi issues
+
+	[ One Block Crouch ]
+		- Changed the CVar check that the value of "NoOneBlockCrouch" must be greater than 0.
+
+	[ Item Degradation ]
+		- Moved check for Item Break up further, and added a debug statement.
+		- This debug statement will be removed in the next release if tested successfully.
+
+	[ Fire Manager ]
+		- Made a change to send block damage as it happens, instead of queueing
+		- This was made to fix an issue with blocks not showing damaged on dedi.
+		- This may cause some performance issues.
+	
+
+	
+Version: 2.3.37.1023
+	[ Item Degradation ]
+		- Added Biome support for onSelfItemDegrade / onSelfRoutineUpdate
+		- If IconTint is set to 255,255,255, no tint shall be applied, regardless of other checks.
+		- Added a check to see if the currently degraded item has met its max, and if so, trigger the break check.
+
+
+	[ onSelf Triggers ]
+		- Added Biome Support for the following triggers:
+			- OnLootContainerPicked
+			- OnSelfItemDegrade
+			- OnSelfItemRepaired
+			- OnSelfItemScrap
+			- OnSelfItemSold
+			- OnSelfPlaceBlock
+			- OnSelfQuestComplete
+			- OnSelfRoutineUpdate
+
+	[ Traders ]
+		- Added a patch to allow entities to stay within trader bounds if a cvar is set.
+		- If cvar "traderStayTicket" is greater than 0, the entity will not be teleported outside of the compound.
+		- This applies to any EntityAlive with the cvar set, be it player, npc, or zombies(?!)
+		- The trader closes and locks all the doors in their compound. You will not be able to open them.
+			- This was humourous. 
+		
+	[ SphereII Larger Parties ]
+		- Fixed an issue where exp gain was being calculated in a different spot, causing 0xp to be rewarded in large groups
+
+		
+Version: 2.3.35.1444
+	[ Item Degradation ]
+		- Added new MinEventAction that can be triggered from any trigger
+		- This action can search your bag, toolbelt, and equipment slots ( including biome badges ) on any triggers.
+		- You may filter it by specifying an item_name attribute or tags.
+		- Item_name is comma delimited, allowing you to specify multiple items.
+		- It will only degrade an item that meets its first condition.
+			- That is, the same item won't be degraded multiple times on the same trigger.
+		- item_name or tags can be omitted, as long as the other is listed.
+		
+		- Example:
+			<triggered_effect trigger="onOtherDamagedSelf" 
+				action="DegradeSpecificItemValueMod, SCore" item_name="myItem" tags="anytags" slots="equipment" />
+			<triggered_effect trigger="onSelfItemDegrade" 
+				action="DegradeSpecificItemValueMod, SCore" item_name="myItem" tags="anytags" slots="bags,inventory,equipment" />
+
+		- Added optional attribute for DegradeSpecificItemValue and DegradeItemValue
+		- This will degrade the item as per DegradationPerUse, plus an additional degradation that matches the override.
+		- Default is 0.
+			<triggered_effect trigger="onOtherDamagedSelf" 
+				action="DegradeSpecificItemValueMod, SCore" item_name="myItem" tags="anytags" slots="bags,inventory,equipment" DegradeOveride="50" />
+
+            <triggered_effect trigger="onSelfItemDegrade" action="DegradeItemValueMod, SCore" DegradeOveride="50"/>
+
+
+		- Fixed an issue where the helmet light would turn off. This was due to a triggered effect running too much.
+		- Modified code to deactive the item rather than xml. This must be refactored by removing:
+		- This xml code was turning off the head light, and it's not actually necessary.
+    		<append xpath="//item_modifier[@name='modArmorHelmetLight']">
+        	<!--
+        		<effect_group name="DamageHooks Deactivate">
+            		<requirement name="ItemPercentUsed, SCore" operation="LT" value="1"/>
+					<requirement name="IsItemActive"/>
+					<triggered_effect trigger="onSelfRoutineUpdate" action="LogMessage" message="DegradeItemValue:: HeadLight" />
+            		<triggered_effect trigger="onSelfRoutineUpdate" action="SetPartActive" part="HeadLight" active="false" />
+        		</effect_group>
+			-->
+    		</append>
+
+		- Changed a mod.HasQuality() check to a Mod.ShowQualityBar to allow degradation
+
+	[ Challenges ]
+		- Fixed an issue where Requirement Groups weren't being property parsed.
+
+	[ Quality Levels ]
+		- Fixed a null reference due to index out of bounds when accessing Creative menu
+
+Version: 2.3.34.1901
+	[ Quality Levels ]
+		- Initial implementation for Quality Tiers.
+		- New Configuration options under AdvancedItemFeatures
+			<property name="CustomQualityLevels" value="false" />
+			<property name="QualityLevels" value="0,700" />
+		- If CustomQualityLevels is set to true, then Quality will generate based on the range of QualityLevels.
+		- There may still be gaps in this patch, but it seems to mostly work.
+
+	[ SphereII Larger Parties ]
+		- Added a debug line to troubleshoot exp with large parties
+		- Removed the check on member list count.
+
+Version: 2.3.32.1830
+ 	[ Item Degradation ]
+		- Fixed an issue where onSelfItemRepaired, onSelfItemScrap, and onSelfItemDegrade was running twice: Once on the item, once on the player.
+			- This was double-firing the trigger.
+
+Version:  2.3.32.1604
+	[ Item Degradation ]
+		- Removed a block on only degrading an item if it was used as part of crafting.
+			- Now all mods will degrade when an item is being crafted
+	
+	[ Dialog ]
+		- Set the QuestGiverID as part of the DialogActionGiveQuestSDX, so that quest must be returned to that NPC.
+
+	[ Challenges ]
+		- Added a null check in CraftWithTags
+
+Version: 2.3.30.1720
+	[ Challenges ]
+		- Added new Challenges entry to AdvancedTroubleshootingFeatures to toggle advanced troubleshooting output
+
+	[ Item Degradation ]
+		- Fixed an issue where onSelfItemDegrade wasn't being called properly for item mods.
+
+
+Version: 2.3.28.928
+	[ Challenges ]
+		- Added troubleshooting to a few Challenge Group setting to help track down typos. 
+
+	[ Item Degradation ]
+		- Fixed an issue where armor mods were not being degraded properly.
+		- Added a new Class to the Config block for Item Degradation global values.
+            <property class="ItemDegradation">
+				<!-- Default tint to apply to broken item -->
+                <property name="BrokenTint" value="210,0,0" />
+				<!-- if set to false, mods must be removed and repaired independently of the item in which they are attached too -->
+                <property name="RepairModsWithItem" value="true" />
+            </property>
+
+		- Added support for damaging mods on EntityVehicles when they get damaged.
+		- Added support for reducing durability of the vehicle headlight if left on.
+ 		- Added new option for MinEventActionRoutineUpdate to take a 'vehicle' parameter. 
+			- This tells the MinEvent that it should only run on a vehicle.
+
+	[ EntityAliveSDX ]
+		- Added a potential fix for the GetQuestList() null reference being reported when talking with NPCs at night.
+
+	[ SphereII Item Degradation Mod ]
+		- New buffRoutineVehicleUpdateTrigger buff to support degrading mods on vehicles when left on
+		- Added new buff to any entity starting with vehicle.
+		- Added xml to support vehicle head light
+
+	[ SphereII LArger Parties ]
+		- Fixed a potential issue when the Party was being set to full when it was not.
+
 Version: 2.3.23.913
 	[ EntityAliveSDX ]
 		- Added a new CheckLeaderProximity check.

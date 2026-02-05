@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Xml.Linq;
+using Audio;
 using SCore.Features.ItemDegradation.Utils;
 using UnityEngine;
 
@@ -13,9 +14,18 @@ public class MinEventActionRoutineUpdate : MinEventActionTargetedBase
     private bool bEquipment;
     private bool bToolbelt;
     private bool bBag;
+    private bool bVehicle;
     
     public override void Execute(MinEventParams _params)
     {
+        if (bVehicle)
+        {
+            var entityVehicle = _params.Self as EntityVehicle;
+            if (entityVehicle == null) return;
+            var vehicle = entityVehicle.vehicle;
+            CheckItemValue(vehicle.itemValue, null);
+            return;
+        }
         var localPlayer = _params.Self as EntityPlayerLocal;
         var playerUI = localPlayer?.playerUI;
         if (playerUI == null) return;
@@ -31,9 +41,15 @@ public class MinEventActionRoutineUpdate : MinEventActionTargetedBase
         // Equipment
         if (bEquipment)
         {
-            foreach (var item in _params.Self.equipment.GetItems())
+            for( var x =0; x < _params.Self.equipment.GetSlotCount(); x++ )
+            {
+                var item = _params.Self.equipment.GetSlotItem(x);
+                if ( ItemDegradationHelpers.IsDegraded(item)) continue;
                 CheckItemValue(item, null);
-            
+                if (!ItemDegradationHelpers.IsDegraded(item) || !item.ItemClass.MaxUseTimesBreaksAfter.Value) continue;
+                Manager.BroadcastPlay(localPlayer, "itembreak");
+                _params.Self.equipment.SetSlotItem(x, ItemValue.None);
+            }
         }
 
         // Tool Belt.
@@ -56,6 +72,7 @@ public class MinEventActionRoutineUpdate : MinEventActionTargetedBase
             }
           
         }
+
     }
 
     private void CheckItemValue(ItemValue itemValue, XUiC_ItemStack stack)
@@ -80,15 +97,14 @@ public class MinEventActionRoutineUpdate : MinEventActionTargetedBase
         var flag = base.ParseXmlAttribute(attribute);
         if (flag) return true;
         var localName = attribute.Name.LocalName;
-        if (localName != "slots")
-        {
-            return false;
-        }
+        if (localName != "slots") return false;
 
         var slots = attribute.Value.ToLower();
         bBag = slots.Contains("bag");
         bEquipment = slots.Contains("equipment");
         bToolbelt = slots.Contains("inventory");
+        bVehicle = slots.Contains("vehicle");
+
         return true;
 
     }

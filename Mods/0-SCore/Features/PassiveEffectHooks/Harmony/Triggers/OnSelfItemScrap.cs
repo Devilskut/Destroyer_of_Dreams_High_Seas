@@ -11,12 +11,13 @@ public static class OnSelfItemScrap
         var minEventParams = new MinEventParams {
             TileEntity = TraderUtils.GetCurrentTraderTileEntity(),
             ItemValue = stack.itemValue,
-            Self = GameManager.Instance.World.GetPrimaryPlayer()
+            Self = GameManager.Instance.World.GetPrimaryPlayer(),
+            Biome = GameManager.Instance.World.GetPrimaryPlayer()?.biomeStandingOn
         };
 
         
         stack.itemValue.ItemClass.FireEvent((MinEventTypes)SCoreMinEventTypes.onSelfScrapItem, minEventParams);
-        minEventParams.Self.MinEventContext = minEventParams;
-        minEventParams.Self.FireEvent((MinEventTypes)SCoreMinEventTypes.onSelfScrapItem);
+        // minEventParams.Self.MinEventContext = minEventParams;
+        // minEventParams.Self.FireEvent((MinEventTypes)SCoreMinEventTypes.onSelfScrapItem);
     }
 }

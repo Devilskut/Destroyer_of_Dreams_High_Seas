@@ -3,14 +3,13 @@
     <ServerGroup Name="Destroyer of Dreams High Seas" Logo="" Description="Can you escape the Destoyer?">
         <Server Name="Destroyer of Dreams High Seas" Logo="">
             <Description>
-				A mini overhaul mod for Release Ver.2.4 stable
+				A mini overhaul mod for Release Ver.2.5 stable
 
 				This mod pack was created for a solo or multiplayer challenge onboard an US Arleigh Burke Class Destroyer DG-51, Concept design by CannonFodder83 and redesigned by Devilskut for Release
-				Ver.2.4 Stable with code help from Techgeek_20 and "bug hunting" from AngelacusGaming.
+				Ver.2.5 Stable with code help from Techgeek_20 and "bug hunting" from AngelacusGaming.
 
 				Notes about this mini-mod:
 
-				Zombie corpses now drop an entity-specific red loot bag.
 				Removed non-essential vehicle parts from loot and crafting.
 				Beds, Bedrolls, and land claim block recipes removed.
 				Removed treasure maps from loot.
@@ -34,7 +33,7 @@
 
 				Your only means of completing your mission is to gather everything you need to be able to craft an UH-60 Helicopter to reach your final objectives.
 
-				A mini overhaul mod for Ver.2.4 Stable . Designed for group or solo play with an Arleigh Burke Class Destroyer DG-51, a Guns Trader and a mission to liberate the zombie threat once and for all.
+				A mini overhaul mod for Ver.2.5 Stable . Designed for group or solo play with an Arleigh Burke Class Destroyer DG-51, a Guns Trader and a mission to liberate the zombie threat once and for all.
 
 				Five (5) custom worlds, one for each biome, so you can choose your starting "difficulty" - Forest, Burnt, Desert, Snow, or the ultimate challenge, Wasteland.
 
@@ -78,7 +77,7 @@
 				Found a bug or poi stability issue and wish to let us know?  Head to https://github.com/Devilskut/Destroyer_of_Dreams_High_Seas/issues and open an issues ticket.
 
 			</Description>
-            <Version>2.4 Stable </Version>
+            <Version>2.5 Stable </Version>
             <EAC>Disabled</EAC>
 			<Discord>https://discord.gg/ePNGymJ3bP</Discord>
 			<Donate></Donate>

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Audio;
 using HarmonyLib;
 using UnityEngine;
@@ -7,6 +8,8 @@ namespace SCore.Features.ItemDegradation.Utils
 {
     public class ItemDegradationHelpers
     {
+        public const string AdvFeatureClass = "ItemDegradation";
+        
         public const string DegradationPerUse = "DegradationPerUse";
         public const string DegradationMaxUse = "DegradationMaxUse";
 
@@ -29,6 +32,8 @@ namespace SCore.Features.ItemDegradation.Utils
                 return value;
             }
 
+            if (mod.ItemClass?.Properties == null) return -1;
+            
             // 2. Fall back to static item class properties.
             if (!mod.ItemClass.Properties.Contains(property)) return -1;
 
@@ -74,7 +79,8 @@ namespace SCore.Features.ItemDegradation.Utils
         {
             if (mod == null) return false;
             if (mod.IsEmpty()) return false;
-            if (!mod.HasQuality) return false;
+            if (!mod.ItemClass.ShowQualityBar) return false;
+            //if (!mod.HasQuality) return false;
             if (GetMaxUseTimes(mod) <= 1) return false;
             return true;
         }
@@ -113,24 +119,44 @@ namespace SCore.Features.ItemDegradation.Utils
             minEffect.FireEvent((MinEventTypes)SCoreMinEventTypes.onSelfItemDegrade, minEventParams);
          }
 
-        public static void CheckModification(ItemValue mod, EntityAlive player)
+        public static void CheckModification(ItemValue mod, EntityAlive player, int degradeOveride = 0)
         {
             if (!CanDegrade(mod)) return;
-            if (IsDegraded(mod)) return;
-            mod.UseTimes += GetDegradationPerUse(mod);
-            if (mod.UseTimes < GetMaxUseTimes(mod)) return;
+            if (IsDegraded(mod))
+            {
+                DeactivateItem(mod, player);
+                if (mod.ItemClass.MaxUseTimesBreaksAfter.Value)
+                {
+                    if ( player != null)
+                        Manager.BroadcastPlay(player, "itembreak");
+                    mod = ItemValue.None;
+                }
 
-            Manager.BroadcastPlay(player, "itembreak");
+                return;
+            }
+            
+            mod.UseTimes += GetDegradationPerUse(mod);
+            // Allow an over-ride
+            mod.UseTimes += degradeOveride;
+
+            // Do another IsDegraded check to see if we need to trigger any events.
+            if (!IsDegraded(mod)) return;
+            
+            // Make sure it doesn't get silly and reset it to the max use time.
+            mod.UseTimes = GetMaxUseTimes(mod);
+            
+            DeactivateItem(mod, player);
+
+      
+        }
+
+        private static void DeactivateItem(ItemValue mod, EntityAlive player)
+        {
             if (mod.ItemClass.HasTrigger(MinEventTypes.onSelfItemActivate) && mod.Activated != 0)
             {
                 player.MinEventContext.ItemValue = mod;
-                mod.FireEvent(MinEventTypes.onSelfItemDeactivate, player.MinEventContext);
+                mod.FireEvent(MinEventTypes.onSelfItemDeactivate, player != null ? player.MinEventContext : null);
                 mod.Activated = 0;
-            }
-
-            if (mod.ItemClass.MaxUseTimesBreaksAfter.Value)
-            {
-                mod = ItemValue.None;
             }
         }
 
@@ -139,10 +165,17 @@ namespace SCore.Features.ItemDegradation.Utils
             for (var i = 0; i < items.Length; i++)
             {
                 if (items[i]?.ItemClass == null) continue;
-                CheckModification(items[i], player);
+                //CheckModification(items[i], player);
+                CheckModsForDegradation(items[i], player);
+             
             }
         }
         
+        public static void CheckModsForDegradation(ItemValue mod, EntityAlive player)
+        {
+                OnSelfItemDegrade.CheckForDegradation(mod, player);
+        }
+
         public static void CheckToolsForDegradation(TileEntityWorkstation instance, global::Recipe recipe)
         {
             if (instance.bUserAccessing || instance.queue.Length == 0 || (instance.isModuleUsed[3] && !instance.isBurning)) return;
@@ -164,39 +197,112 @@ namespace SCore.Features.ItemDegradation.Utils
             }
         }
 
-        [HarmonyPatch(typeof(ItemAction))]
-        [HarmonyPatch(nameof(ItemAction.HandleItemBreak))]
-        public class ItemActionHandleItemBreak
+        public static List<ItemValue> FindAllItemValues(EntityAlive entityAlive, string itemName, string tagsString)
         {
-            public static void Postfix(global::ItemActionData _actionData)
+            List<ItemValue> itemValues = new List<ItemValue>();
+
+            // Early exit if both criteria are empty, no search needed.
+            if (string.IsNullOrEmpty(itemName) && string.IsNullOrEmpty(tagsString))
             {
-                CheckModificationOnItem(_actionData.invData.holdingEntity.inventory.holdingItemItemValue.Modifications,
-                    _actionData.invData.holdingEntity);
+                return itemValues;
+            }
+
+            // Parse tags once if provided.
+            FastTags<TagGroup.Global> tags = FastTags<TagGroup.Global>.none;
+            if (!string.IsNullOrEmpty(tagsString))
+            {
+                tags = FastTags<TagGroup.Global>.Parse(tagsString);
+            }
+
+            // Find items in bag
+            FindItemValues(entityAlive.bag.GetSlots(), itemName, tags, itemValues);
+            // Find items in inventory
+            FindItemValues(entityAlive.inventory.GetSlots(), itemName, tags, itemValues);
+            // Find items in equipment
+            FindItemValues(entityAlive.equipment.m_slots, itemName, tags, itemValues);
+
+            return itemValues;
+        }
+      
+        public static void FindItemValues(ItemValue[] rawItemValues, string itemName, FastTags<TagGroup.Global> tags, List<ItemValue> resultsList)
+        {
+            if (rawItemValues == null || rawItemValues.Length == 0)
+            {
+                return;
+            }
+
+            foreach (var itemValue in rawItemValues)
+            {
+                // Skip if the itemValue itself is null or empty
+                if (itemValue == null || itemValue.IsEmpty())
+                {
+                    continue;
+                }
+
+                // Check if the itemValue matches the criteria
+                if (IsItemMatch(itemValue, itemName, tags))
+                {
+                    resultsList.Add(itemValue);
+                }
+            }
+        }
+        
+        public static void FindItemValues(ItemStack[] itemStacks, string itemName, FastTags<TagGroup.Global> tags, List<ItemValue> resultsList)
+        {
+            if (itemStacks == null || itemStacks.Length == 0)
+            {
+                return;
+            }
+
+            foreach (var itemStack in itemStacks)
+            {
+                // Skip if the stack itself is null, empty, or its contained itemValue is null
+                if (itemStack == null || itemStack.IsEmpty() || itemStack.itemValue == null)
+                {
+                    continue;
+                }
+
+                // Check if the itemValue matches the criteria
+                if (IsItemMatch(itemStack.itemValue, itemName, tags))
+                {
+                    resultsList.Add(itemStack.itemValue);
+                }
             }
         }
 
-        [HarmonyPatch(typeof(EntityAlive))]
-        [HarmonyPatch(nameof(EntityAlive.ApplyLocalBodyDamage))]
-        public class EntityAliveApplyLocalBodyDamage
+        private static bool IsItemMatch(ItemValue itemValue, string itemNameCsv, FastTags<TagGroup.Global> tags)
         {
-            public static void Postfix(global::EntityAlive __instance, DamageResponse _dmResponse)
+            // 1. Basic validation for the item itself
+            if (itemValue == null || itemValue.IsEmpty() || itemValue.ItemClass == null)
             {
-                if (__instance.equipment == null) return;
+                return false;
+            }
 
-                var wornArmor = __instance.equipment.GetArmor();
-                foreach (var armor in wornArmor)
+            // 2. Check for item name matches (if itemNameCsv is provided)
+            bool nameMatches = false;
+            if (!string.IsNullOrEmpty(itemNameCsv))
+            {
+                string currentItemName = itemValue.ItemClass.GetItemName();
+                // Split the CSV string and iterate. Using StringSplitOptions.RemoveEmptyEntries
+                // prevents empty strings if there are consecutive commas or leading/trailing commas.
+                string[] namesToMatch = itemNameCsv.Split(new char[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (string nameEntry in namesToMatch)
                 {
-                    if (armor.ItemClass is not ItemClassArmor armorItemClass)
+                    // Trim whitespace from the entry for accurate comparison
+                    if (currentItemName.Equals(nameEntry.Trim(), System.StringComparison.Ordinal)) // Or OrdinalIgnoreCase if desired
                     {
-                        continue;
-                    }
-
-                    if (_dmResponse.ArmorSlot == armorItemClass.EquipSlot)
-                    {
-                        CheckModification(armor, __instance);
+                        nameMatches = true;
+                        break; // Found a match, no need to check other names
                     }
                 }
             }
+        
+            // 3. Check for tag matches (if tags are provided)
+            bool tagsMatch = !tags.IsEmpty && itemValue.ItemClass.HasAnyTags(tags);
+
+            // 4. Return true if either names match OR tags match
+            return nameMatches || tagsMatch;
         }
     }
 }

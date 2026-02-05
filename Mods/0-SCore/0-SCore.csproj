@@ -83,6 +83,7 @@
     <Compile Include="Features\Challenges\Scripts\ChallengeObjectiveWearTags.cs" />
     <Compile Include="Features\Challenges\Scripts\ChallengeRequirementManager.cs" />
     <Compile Include="Features\Challenges\Scripts\IChallengeObjective.cs" />
+    <Compile Include="Features\Challenges\Scripts\NetPackageSleeperVolumeCleared.cs" />
     <Compile Include="Features\Challenges\Scripts\SCoreChallengeUtils.cs" />
     <Compile Include="Features\Drones\Harmony\EntityDronePatches.cs" />
     <Compile Include="Features\DynamicBones\Harmony\SDCSMatchRigs.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Features\DynamicBones\Scripts\DynamicBonePlaneCollider.cs" />
     <Compile Include="Features\EntityPooling\Harmony\EntityFactoryPatch.cs" />
     <Compile Include="Features\EntityPooling\Scripts\EntityFactoryPool.cs" />
+    <Compile Include="Features\ErrorChecks\Harmony\EntityGroupsIsEnemyGroup.cs" />
     <Compile Include="Features\ErrorChecks\Harmony\TileEntityCopyFrom.cs" />
     <Compile Include="Features\ErrorChecks\Harmony\TraderDataReadInventoryData.cs" />
     <Compile Include="Features\Farming\Scripts\Blocks\BlockCropControlPanel.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Features\Farming\Scripts\FarmPlotManager.cs" />
     <Compile Include="Features\Farming\Scripts\NetPackage\NetPackageToggleSprinkler.cs" />
     <Compile Include="Features\Farming\Scripts\WaterPipeManager.cs" />
+    <Compile Include="Features\FireV2\Harmony\BlockInit.cs" />
     <Compile Include="Features\FireV2\Harmony\ChunkSetBlock.cs" />
     <Compile Include="Features\FireV2\Harmony\Explosion.cs" />
     <Compile Include="Features\FireV2\Harmony\FireInit.cs" />
@@ -148,16 +151,20 @@
     <Compile Include="Features\FoodSpoilageV2\Harmony\XUiC_ItemInfoWindow.cs" />
     <Compile Include="Features\FoodSpoilageV2\Scripts\SpoilageConfig.cs" />
     <Compile Include="Features\FoodSpoilageV2\Scripts\SpoilageConstants.cs" />
-    <Compile Include="Features\ItemDegradation\Harmony\ItemValueMaxUseTimes.cs" />
+    <Compile Include="Features\ItemDegradation\Harmony\General\EntityAliveApplyLocalBodyDamage.cs" />
+    <Compile Include="Features\ItemDegradation\Harmony\ItemStacks\XUiCRecipeStackOutputStackPatches.cs" />
+    <Compile Include="Features\ItemDegradation\Harmony\ItemStacks\XUiCRequiredItemStackGetBindingValue.cs" />
+    <Compile Include="Features\ItemDegradation\Harmony\General\ItemActionHandleItemBreak.cs" />
+    <Compile Include="Features\ItemDegradation\Harmony\General\ItemClassGetIconTint.cs" />
+    <Compile Include="Features\ItemDegradation\Harmony\General\ItemValueMaxUseTimes.cs" />
     <Compile Include="Features\ItemDegradation\Harmony\TestingPatches.cs" />
-    <Compile Include="Features\ItemDegradation\Harmony\TileEntityDewCollectorHandleModChanged.cs" />
-    <Compile Include="Features\ItemDegradation\Harmony\TileEntityWorkstationHandleRecipeQueue.cs" />
-    <Compile Include="Features\ItemDegradation\Harmony\TileEntityWorkstationUpdateTick.cs" />
-    <Compile Include="Features\ItemDegradation\Harmony\ItemClassGetIconTint.cs" />
-    <Compile Include="Features\ItemDegradation\Harmony\XUiCRecipeStackOutputStackPatches.cs" />
-    <Compile Include="Features\ItemDegradation\Harmony\XUiCRequiredItemStackGetBindingValue.cs" />
-    <Compile Include="Features\ItemDegradation\Harmony\XUiCWorkstationFuelGridTurnOn.cs" />
-    <Compile Include="Features\ItemDegradation\Harmony\XUiCWorkstationToolGridHasRequirement.cs" />
+    <Compile Include="Features\ItemDegradation\Harmony\Vehicles\EntityVehicleApplyDamage.cs" />
+    <Compile Include="Features\ItemDegradation\Harmony\Vehicles\VehiclePartIsBroken.cs" />
+    <Compile Include="Features\ItemDegradation\Harmony\Workstations\TileEntityDewCollectorHandleModChanged.cs" />
+    <Compile Include="Features\ItemDegradation\Harmony\Workstations\TileEntityWorkstationHandleRecipeQueue.cs" />
+    <Compile Include="Features\ItemDegradation\Harmony\Workstations\TileEntityWorkstationUpdateTick.cs" />
+    <Compile Include="Features\ItemDegradation\Harmony\Workstations\XUiCWorkstationFuelGridTurnOn.cs" />
+    <Compile Include="Features\ItemDegradation\Harmony\Workstations\XUiCWorkstationToolGridHasRequirement.cs" />
     <Compile Include="Features\ItemDegradation\Utils\ItemModificationDegradation.cs" />
     <Compile Include="Features\ItemDisplayEntry\Harmony\XUiMItemStackGetCustomValue.cs" />
     <Compile Include="Features\ItemDisplayEntry\Scripts\ItemDisplayEntryUtils.cs" />
@@ -196,6 +203,7 @@
     <Compile Include="Features\ParticlesOnBlocks\Harmony\Blocks.cs" />
     <Compile Include="Features\PassiveEffectHooks\AddHooks.cs" />
     <Compile Include="Features\PassiveEffectHooks\Harmony\EntityAliveFireEventPatch.cs" />
+    <Compile Include="Features\PassiveEffectHooks\Harmony\EntityVehiclePostInit.cs" />
     <Compile Include="Features\PassiveEffectHooks\Harmony\ItemActionEntryScrapPostfix.cs" />
     <Compile Include="Features\PassiveEffectHooks\Harmony\ItemValueFireEventPatch.cs" />
     <Compile Include="Features\PassiveEffectHooks\Harmony\MinEventActionBasePatch.cs" />
@@ -220,6 +228,20 @@
     <Compile Include="Features\PassiveEffectHooks\TestingHooks.cs" />
     <Compile Include="Features\PlayerMetrics\KillTracking\Scripts\SCoreKillTracker.cs" />
     <Compile Include="Features\PlayerMetrics\SCoreMetrics.cs" />
+    <Compile Include="Features\Quality\Harmony\ItemValueConstructor.cs" />
+    <Compile Include="Features\Quality\Harmony\QualityInfoCleanUp.cs" />
+    <Compile Include="Features\Quality\Harmony\QualityInfoGetQualityColor.cs" />
+    <Compile Include="Features\Quality\Harmony\QualityInfoGetQualityColorHex.cs" />
+    <Compile Include="Features\Quality\Harmony\QualityInfoGetQualityLevelName.cs" />
+    <Compile Include="Features\Quality\Harmony\QualityInfoGetTierColor.cs" />
+    <Compile Include="Features\Quality\Harmony\TraderStageTemplateIsWithin.cs" />
+    <Compile Include="Features\Quality\Harmony\XUiCCombineGridMergeSlotChangedEvent.cs" />
+    <Compile Include="Features\Quality\Harmony\XUiCCraftingInfoAddQualityButton_OnPress.cs" />
+    <Compile Include="Features\Quality\Harmony\XUiCCraftingInfoSubtractQualityButton_OnPress.cs" />
+    <Compile Include="Features\Quality\Harmony\XUiCRecipeStackSetRecipe.cs" />
+    <Compile Include="Features\Quality\Harmony\XUiMTraderGetBuyPrice.cs" />
+    <Compile Include="Features\Quality\Harmony\XUiMTraderGetSellPrice.cs" />
+    <Compile Include="Features\Quality\Scripts\QualityUtils.cs" />
     <Compile Include="Features\Recipe\Harmony\TileEntityWorkstationHandleRecipeQueue.cs" />
     <Compile Include="Features\Recipe\Harmony\XUiCRecipeStackPatches.cs" />
     <Compile Include="Features\Recipe\SCoreTabTypes.cs" />
@@ -306,6 +328,7 @@
     <Compile Include="Harmony\NPCFeatures\AllowStashButtonsForNPCs.cs" />
     <Compile Include="Harmony\NPCFeatures\DynamicMusicPlayerTracking.cs" />
     <Compile Include="Harmony\NPCFeatures\DynamicPrefabGetTraderArea.cs" />
+    <Compile Include="Harmony\NPCFeatures\EntityAliveCheckForTeleportOutofTraderArea.cs" />
     <Compile Include="Harmony\NPCFeatures\EntityAliveGroundDetection.cs" />
     <Compile Include="Harmony\NPCFeatures\EntityAlivePatcher.cs" />
     <Compile Include="Harmony\NPCFeatures\EntityAlivePatcherAwardKill.cs" />
@@ -315,6 +338,7 @@
     <Compile Include="Harmony\NPCFeatures\EntityNPCSpeedFix.cs" />
     <Compile Include="Harmony\NPCFeatures\EntityStatsInit.cs" />
     <Compile Include="Harmony\NPCFeatures\EntityTraderEModalSetLookAt.cs" />
+    <Compile Include="Harmony\NPCFeatures\NetPackageNPCQuestList.cs" />
     <Compile Include="Harmony\PlayerFeatures\AutoRedeemChallenges.cs" />
     <Compile Include="Harmony\PlayerFeatures\Encumbrance.cs" />
     <Compile Include="Harmony\PlayerFeatures\EntityStats.cs" />
@@ -323,11 +347,15 @@
     <Compile Include="Harmony\PlayerFeatures\PlayerMoveControllerUpdate.cs" />
     <Compile Include="Harmony\PlayerFeatures\SoftHands.cs" />
     <Compile Include="Harmony\PlayerFeatures\TeleportNPCs.cs" />
+    <Compile Include="Harmony\PrefabFeatures\BlockCanPlaceBlockAt.cs" />
     <Compile Include="Harmony\PrefabFeatures\DynamicPrefabDecorator.cs" />
     <Compile Include="Harmony\PrefabFeatures\RemoveTraderProtection.cs" />
+    <Compile Include="Harmony\PrefabFeatures\WorldCanPlaceBlockAt.cs" />
+    <Compile Include="Harmony\PrefabFeatures\WorldIsWithinTraderArea.cs" />
     <Compile Include="Harmony\Progression\EntityAliveSDXProgressionHooks.cs" />
     <Compile Include="Harmony\Progression\Progression.cs" />
     <Compile Include="Harmony\Quests\QuestEventManager.cs" />
+    <Compile Include="Harmony\Quests\QuestEventManagerGetQuestList.cs" />
     <Compile Include="Harmony\QuickContinue\QuickContinue.cs" />
     <Compile Include="Harmony\SleeperVolume\SleeperVolumeSpawn.cs" />
     <Compile Include="Harmony\SoundFeatures\AudioClientPlay.cs" />
@@ -355,6 +383,7 @@
     <Compile Include="Harmony\Vehicles\VehicleGetFuelType.cs" />
     <Compile Include="Harmony\WorldGen\CaveProject.cs" />
     <Compile Include="Harmony\WorldGen\HeightMapCaveSystem.cs" />
+    <Compile Include="Harmony\WorldGen\PoiMapElementConstructor.cs" />
     <Compile Include="Harmony\XML\ModInfoPatches.cs" />
     <Compile Include="Harmony\XUIC\SirillionThings.cs" />
     <Compile Include="Harmony\XUIC\XUiController.cs" />
@@ -386,8 +415,8 @@
     <Compile Include="Scripts\Blocks\BlockPathFinding.cs" />
     <Compile Include="Scripts\Blocks\BlockPickUpAndReplace.cs" />
     <Compile Include="Scripts\Blocks\BlockDecoAoE.cs" />
-    <Compile Include="Scripts\Blocks\BlockPoweredPortal.cs" />
     <Compile Include="Scripts\Blocks\BlockPortal.cs" />
+    <Compile Include="Scripts\Blocks\BlockPoweredPortal.cs" />
     <Compile Include="Scripts\Blocks\BlockPoweredWorkstation.cs" />
     <Compile Include="Scripts\Blocks\BlockPrefabPlacer.cs" />
     <Compile Include="Scripts\Blocks\BlockSpawnCube2SDX.cs" />
@@ -504,6 +533,7 @@
     <Compile Include="Scripts\Entities\EntityUtilities.cs" />
     <Compile Include="Scripts\Entities\EntityZombieFlockSDX.cs" />
     <Compile Include="Scripts\Entities\EntityZombieFlyingSDX.cs" />
+    <Compile Include="Scripts\Entities\EntitySyncUtils.cs" />
     <Compile Include="Scripts\Entities\IEntityOrderReceiverSDX.cs" />
     <Compile Include="Scripts\Entities\LegacyEntityClasses.cs" />
     <Compile Include="Scripts\Entities\ModGeneralUtilities.cs" />
@@ -518,6 +548,7 @@
     <Compile Include="Scripts\Features\AdvLogging.cs" />
     <Compile Include="Scripts\Features\Configuration.cs" />
     <Compile Include="Scripts\Features\ILUtilities.cs" />
+    <Compile Include="Scripts\GameEvents\RequirementHasFailedQuest.cs" />
     <Compile Include="Scripts\GameEvents\RequirementInVehicleSDX.cs" />
     <Compile Include="Scripts\ItemAction\ItemActionMeleeSDX.cs" />
     <Compile Include="Scripts\ItemAction\ItemActionLauncherSDX.cs" />
@@ -543,6 +574,7 @@
     <Compile Include="Scripts\MinEvents\MinEventActionConvertItem.cs" />
     <Compile Include="Scripts\MinEvents\MinEventActionDamageBlock.cs" />
     <Compile Include="Scripts\MinEvents\MinEventActionDegradeItemValue.cs" />
+    <Compile Include="Scripts\MinEvents\MinEventActionDegradeSpecificItemValue.cs" />
     <Compile Include="Scripts\MinEvents\MinEventActionModifyItem.cs" />
     <Compile Include="Scripts\MinEvents\MinEventActionOpenWindow.cs" />
     <Compile Include="Scripts\MinEvents\MinEventActionRecalculateEncumbrance.cs" />
@@ -595,7 +627,6 @@
     <Compile Include="Scripts\NetPackage\NetPackageDeployNPCSDX.cs" />
     <Compile Include="Scripts\NetPackage\NetPackageEntityAliveSDXCollect.cs" />
     <Compile Include="Scripts\NetPackage\NetPackageEntityAliveSDXDataSync.cs" />
-    <Compile Include="Scripts\NetPackage\NetPackagePickUpNPCSDX.cs" />
     <Compile Include="Scripts\NetPackage\NetPackagePlaceNPCSDX.cs" />
     <Compile Include="Scripts\NetPackage\NetPackageQuestBlockDestroyedSDX.cs" />
     <Compile Include="Scripts\NetPackage\NetPackageRemoveBroadcastPosition.cs" />
@@ -618,6 +649,7 @@
     <Compile Include="Scripts\Quests\QuestActionReplaceEntitySDX.cs" />
     <Compile Include="Scripts\Quests\QuestActionSetRevengeTargetsSDX.cs" />
     <Compile Include="Scripts\Quests\QuestActionSpawnEntitySDX.cs" />
+    <Compile Include="Scripts\Quests\QuestActionTeleport.cs" />
     <Compile Include="Scripts\Quests\QuestUtils.cs" />
     <Compile Include="Scripts\Quests\RewardGiveBuff.cs" />
     <Compile Include="Scripts\Quests\RewardGiveCvarDMT.cs" />
@@ -715,6 +747,7 @@
     <Compile Include="Scripts\XUiC\Companions\XUiC_SCoreInGameMenu.cs" />
     <Compile Include="Scripts\XUiC\Controls\XUiC_ToggleButtonCVar.cs" />
     <Compile Include="Scripts\XUiC\XUiC_CharacterFrameWindowSDX.cs" />
+    <Compile Include="Scripts\XUiC\XUiC_CombineGridMod.cs" />
     <Compile Include="Scripts\XUiC\XUiC_DialogHireInformationSDX.cs" />
     <Compile Include="Scripts\XUiC\XUiC_DialogRespondentNameSDX.cs" />
     <Compile Include="Scripts\XUiC\XUiC_DialogStatementWindowSDX.cs" />
@@ -1019,6 +1052,11 @@
       <HintPath>..\..\7DaysToDie_Data\Managed\LogLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.TextTemplating, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.TextTemplating.17.10.40170\lib\net472\Microsoft.VisualStudio.TextTemplating.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard" />
 
     <Reference Include="System.Xml">
       <HintPath>..\..\7DaysToDie_Data\Managed\System.Xml.dll</HintPath>
