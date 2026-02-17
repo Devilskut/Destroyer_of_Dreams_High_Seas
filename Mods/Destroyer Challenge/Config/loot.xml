@@ -63,6 +63,13 @@
         <item name="resourceCrushedSand" count="40,120"/>
         <item name="resourceOilShale" count="50,100"/>
 	</set>
+
+	<!-- *** Toilet_Loot -->
+	<remove xpath="//lootgroup[@name='groupToilet01']//item[@name='resourcePaper']" />
+
+	<append xpath="//lootgroup[@name='groupToilet01']">
+		<item name="drinkJarRiverWater" count="1" loot_prob_template="veryLow"/>
+	</append>
 	
 	<!-- guaranteed battery -->
 	<set xpath="//lootgroup[@name='groupBattBank']//item[2]/@loot_prob_template">guaranteed</set>
@@ -230,6 +237,16 @@
 			<item name="bookGreatHeistSafes"/>
 			<item name="bookGreatHeistSprintSneak"/>
 		</lootgroup>
+
+		<lootgroup name="groupSledgeBooks">
+			<item name="bookSledgeSagaKnockdown"/>
+			<item name="bookSledgeSagaDegradation"/>
+			<item name="bookSledgeSagaCrippledMorale"/>
+			<item name="bookSledgeSagaPulverizingFinishers"/>
+			<item name="bookSledgeSagaSavageReaper"/>
+			<item name="bookSledgeSagaConcussiveStrike"/>
+			<item name="bookSledgeSagaArmorCrusher"/>
+		</lootgroup>
 			
 		<lootgroup name="groupZombieWightLoot" count="all">
 			<item name="drinkJarGrandpasForgettingElixir" prob=".1" force_prob="true" />
@@ -328,6 +345,7 @@
 			<item name="salvageToolsSkillMagazine" prob=".1" force_prob="true" tags="STLoot"/>
 			<item name="sledgehammersSkillMagazine" prob=".1" force_prob="true" tags="SHLoot"/>
 			<item name="electricianSkillMagazine" prob=".13" force_prob="true" tags="ElLoot"/>
+			<item group="groupSledgeBooks" loot_prob_template="veryLow" force_prob="true" tags="SHLoot"/>
 			<item group="groupWastelandTreasuresBooks" loot_prob_template="veryLow" force_prob="true" tags="STLoot"/>
 			<item group="groupMiningBooks" loot_prob_template="veryLow" force_prob="true" tags="HTLoot"/>
 			<item group="groupFiremanBooks" loot_prob_template="veryLow" force_prob="true" tags="SHLoot"/>
@@ -339,6 +357,7 @@
 			<item name="salvageToolsSkillMagazine" prob=".13" force_prob="true" tags="STLoot"/>
 			<item name="sledgehammersSkillMagazine" prob=".13" force_prob="true" tags="SHLoot"/>
 			<item name="electricianSkillMagazine" prob=".13" force_prob="true" tags="ElLoot"/>
+			<item group="groupSledgeBooks" loot_prob_template="Low" force_prob="true" tags="SHLoot"/>
 			<item group="groupWastelandTreasuresBooks" loot_prob_template="low" force_prob="true" tags="STLoot"/>
 			<item group="groupMiningBooks" loot_prob_template="low" force_prob="true" tags="HTLoot"/>
 			<item group="groupFiremanBooks" loot_prob_template="low" force_prob="true" tags="SHLoot"/>

@@ -103,7 +103,7 @@
 			
 			<action type="ShowMessageWindow">
 				<property name="title" value="[FFFF00]STORAGE BOXES[-]"/>
-				<property name="message" value="If you have any [FFFF00]STORAGE BOXES[-] or [FFFF00]PLAYER BLOCKS[-] on the [FFFF00]OIL TANKER[-] they will [FFFF00]VANISH.[-] Please make sure they are [FFFF00]REMOVED[-] before you [FFFF00]PROCEED[-] with this mission. "/>
+				<property name="message" value="If you have any [FFFF00]STORAGE BOXES[-] or [FFFF00]PLAYER BLOCKS[-] on the [FFFF00]OIL TANKER[-] they will [FFFF00]VANISH.[-] Please make sure they are [FFFF00]REMOVED[-] before you [FFFF00]PROCEED[-] with this mission. Should you fail this mission you may craft another by using [FFFF00]Dukes. "/>
 				<property name="delay" value="2"/>
 			</action>
 			
@@ -256,7 +256,7 @@
 
 				<action type="ShowMessageWindow">
 					<property name="title" value="[FFFF00]FORT 666 Night OPS[-]"/>
-					<property name="message" value="Our [FFFF00]FORT 666[-] has come under [FF0000]ASSAULT[-]! This abandoned air strip is FULL of some of the nastiest zombies! NOW, grab all the [FFFF00]AMMO AND PROVISIONS[-] you can gather and get this bird [FF0000]IN THE AIR![-] "/>
+					<property name="message" value="Our [FFFF00]FORT 666[-] has come under [FF0000]ASSAULT[-]! This abandoned air strip is FULL of some of the nastiest zombies! NOW, grab all the [FFFF00]AMMO AND PROVISIONS[-] you can gather and get this bird [FF0000]IN THE AIR![-] Should you fail this mission you may craft another by using [FFFF00]Dukes."/>
 					<property name="delay" value="2"/>
 				</action>
 

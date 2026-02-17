@@ -317,13 +317,13 @@ zombieMutatedCharged,Charged HamandLiz
 zombieMutatedInfernal,Infernal HamandLiz
 
 loadingTipAircraft1_title,Seeds asshole
-loadingTipAircraft1,"All seed crafting is unlocked by default, and some seeds only require a couple of food items to make. There are NO useable farm plots ion the DOCKS or ships ..."
+loadingTipAircraft1,"All seed crafting is unlocked by default, and some seeds only require a couple of food items to make. There are NO useable farm plots on the DOCKS or ships ..."
 
 loadingTipAircraft2_title,Zombie Loot
-loadingTipAircraft2,"Almost every zombie will drop a loot bag once dead, and specific zombies will have a chance to drop specific loot also, not all bags have loot."
+loadingTipAircraft2,"All zombies will be loot able and have a chance to drop specific loot."
 
-loadingTipAircraft3_title,Questing for Skill Magazines
-loadingTipAircraft3,"Skill magazines can be found in their usual places, and certain zombies also have a chance to give certain magazines in their loot bag."
+loadingTipAircraft3_title,Skill Magazines
+loadingTipAircraft3,"Skill magazines can be found in their usual places, and zombies also have a chance to give certain types of magazines"
 
 loadingTipAircraft4_title,Looting
 loadingTipAircraft4,"Loot is an integral part to completing this challenge. Loot will NOT restock."
@@ -355,11 +355,11 @@ loadingTipAircraft12,"There are many changes from vanilla for resource gathering
 loadingTipAircraft13_title,Search Everywhere - Check Everything
 loadingTipAircraft13,"For a military vessel, there are considerable nooks, crannies, hidey holes and hidden stashes all over the place. Some say there are hidden shortcuts within the walls too! Navy brass would be rolling in their grave if they weren't ambling around in hordes of the reanimated dead..."
 
-loadingTipAircraft14_title,Wrench
-loadingTipAircraft14,"Keep it repaired. Look after your wrench, and your wrench will look after you."
+loadingTipAircraft14_title,Fail Quest Reset
+loadingTipAircraft14,"Want to continue your mission you can craft a mission quest using Dukes."
 
-loadingTipAircraft15_title,Archer
-loadingTipAircraft15,"Fear not, little Robin Hood. Wield a bow without arrows but plentiful crossbow bolts? You may convert your arrows to bolts and your bolts to arrows for free. William Tell those apples, my friend."
+loadingTipAircraft15_title,Water Source 
+loadingTipAircraft15,"Fear not, there is a water source, just keep a lookout for a dingy."
 
 dishongTowerBundle,Destroyer Challenge Starter Items,,
 dishongTowerBundleDesc,Starter items for the Destroyer challenge.,,

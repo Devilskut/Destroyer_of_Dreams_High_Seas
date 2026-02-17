@@ -96,8 +96,20 @@
     <insertafter xpath="/blocks/block[@name]/property[1]">
 		<property name="CreativeMode" value="None"/>
 	</insertafter>
-	<set xpath="/blocks/block[@name]/property[@name='CreativeMode']/@value">None</set>  
+	<set xpath="/blocks/block[@name]/property[@name='CreativeMode']/@value">None</set>
 
+	<remove xpath="//block[@name='cntDewCollector']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='cntDewCollector']">
+		<drop event="Destroy" name="cntDewCollector" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+
+	<remove xpath="//block[@name='cntApiary']/drop[@event='Harvest']"></remove>
+
+	<append xpath="/blocks/block[@name='cntApiary']">
+		<drop event="Destroy" name="cntApiary" count="1" tag="salvageHarvest,perkJunkMiner"/>
+	</append>
+	
 	<remove xpath="//block[@name='workbench']/drop[@event='Harvest']"></remove>
 	
 	<append xpath="/blocks/block[@name='workbench']">
