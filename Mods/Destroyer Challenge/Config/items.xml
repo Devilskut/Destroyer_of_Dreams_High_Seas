@@ -31,6 +31,9 @@
 	<set xpath="/items/item[@name='foodEgg']/property[@name='EconomicValue']/@value">30</set>
 
 	<remove xpath="/items/item[@name='ammoProjectileZombieBoulder']" />
+	<remove xpath="/items/item[@name='ammoProjectileZombieBoulderFeral']" />
+	<remove xpath="/items/item[@name='ammoProjectileZombieBoulderCharged']" />
+	<remove xpath="/items/item[@name='ammoProjectileZombieBoulderInfernal']" />
 
 	<insertbefore xpath="/items/item[@name='meleeHandAnimalZombieDog']">
 
@@ -47,7 +50,7 @@
 				<property name="Explosion.RadiusBlocks" value="2.5"/>
 				<property name="Explosion.RadiusEntities" value="3.9"/>
 				<property name="Explosion.EntityDamage" value="70"/>
-				<property name="Explosion.BlockDamage" value="100"/>
+				<property name="Explosion.BlockDamage" value="50"/>
 				<property name="Explosion.DamageBonus.earth" value="0"/>
 				<property name="Explosion.DamageBonus.water" value="0"/>
 				<property name="FlyTime" value="-5"/>
@@ -68,6 +71,106 @@
 				<!--AbrasionRegular-->
 			</effect_group>
 		</item>
+
+		<item name="ammoProjectileZombieBoulderFeral">
+			<property name="Extends" value="ammoProjectileZombieBoulder"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="missingIcon"/>
+			<property class="Action1">
+				<property name="Class" value="Projectile"/>
+				<property name="DamageEntity" value="60"/>
+				<property name="DamageBlock" value="60"/>
+				<property name="Explosion.ParticleIndex" value="36"/>
+				<property name="Explosion.RadiusBlocks" value="2.5"/>
+				<property name="Explosion.RadiusEntities" value="4.7"/>
+				<property name="Explosion.EntityDamage" value="80"/>
+				<property name="Explosion.BlockDamage" value="60"/>
+				<property name="Explosion.DamageBonus.earth" value="0"/>
+				<property name="Explosion.DamageBonus.water" value="0"/>
+				<property name="FlyTime" value="-5"/>
+				<!-- -value calculates ballistic velocity to target over this +duration -->
+				<property name="Velocity" value="50"/>
+				<!-- ballistic max distance for duration -->
+				<property name="Gravity" value="-8"/>
+				<property name="LifeTime" value="7"/>
+				<property name="CollisionRadius" value=".22"/>
+				<property name="Buff" value="buffInjuryStunned03"/>
+			</property>
+			<effect_group name="ammoProjectileZombieBoulder" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="stone"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="0" tags="metal"/>
+			</effect_group>
+		</item>
+
+		<item name="ammoProjectileZombieBoulderCharged">
+			<property name="Extends" value="ammoProjectileZombieBoulder"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="missingIcon"/>
+			<property class="Action1">
+				<property name="Class" value="Projectile"/>
+				<property name="DamageEntity" value="90"/>
+				<property name="DamageBlock" value="70"/>
+				<property name="Explosion.ParticleIndex" value="36"/>
+				<property name="Explosion.RadiusBlocks" value="2.5"/>
+				<property name="Explosion.RadiusEntities" value="4.7"/>
+				<property name="Explosion.EntityDamage" value="90"/>
+				<property name="Explosion.BlockDamage" value="70"/>
+				<property name="Explosion.DamageBonus.earth" value="0"/>
+				<property name="Explosion.DamageBonus.water" value="0"/>
+				<property name="FlyTime" value="-5"/>
+				<!-- -value calculates ballistic velocity to target over this +duration -->
+				<property name="Velocity" value="50"/>
+				<!-- ballistic max distance for duration -->
+				<property name="Gravity" value="-8"/>
+				<property name="LifeTime" value="7"/>
+				<property name="CollisionRadius" value=".22"/>
+				<property name="Buff" value="buffInjuryStunned03"/>
+			</property>
+			<effect_group name="ammoProjectileZombieBoulder" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="stone"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="0" tags="metal"/>
+			</effect_group>
+		</item>
+
+		<item name="ammoProjectileZombieBoulderInfernal">
+			<property name="Extends" value="ammoProjectileZombieBoulder"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="missingIcon"/>
+			<property class="Action1">
+				<property name="Class" value="Projectile"/>
+				<property name="DamageEntity" value="100"/>
+				<property name="DamageBlock" value="100"/>
+				<property name="Explosion.ParticleIndex" value="36"/>
+				<property name="Explosion.RadiusBlocks" value="2.5"/>
+				<property name="Explosion.RadiusEntities" value="4.7"/>
+				<property name="Explosion.EntityDamage" value="100"/>
+				<property name="Explosion.BlockDamage" value="100"/>
+				<property name="Explosion.DamageBonus.earth" value="0"/>
+				<property name="Explosion.DamageBonus.water" value="0"/>
+				<property name="FlyTime" value="-5"/>
+				<!-- -value calculates ballistic velocity to target over this +duration -->
+				<property name="Velocity" value="50"/>
+				<!-- ballistic max distance for duration -->
+				<property name="Gravity" value="-8"/>
+				<property name="LifeTime" value="7"/>
+				<property name="CollisionRadius" value=".22"/>
+				<property name="Buff" value="buffInjuryStunned03"/>
+			</property>
+			<effect_group name="ammoProjectileZombieBoulder" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="0"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="stone"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="0" tags="metal"/>
+			</effect_group>
+		</item>
+
 	</insertbefore>
 	
 	<append xpath="/items/item[starts-with(@name,'drinkJarBoiledWater')]">
