@@ -316,6 +316,150 @@ zombieMutatedRadiated,HamandLiz Radiated
 zombieMutatedCharged,Charged HamandLiz
 zombieMutatedInfernal,Infernal HamandLiz
 
+
+
+# ============================================================
+# CHALLENGES - GROUPS
+# ============================================================
+
+challengeGroupBasics,Start Mission
+challengeGroupBasicsReward,Find Trader
+
+challengeGroupKill,Kill some Zed heads!
+challengeGroupKillReward,Rewards XP
+
+challengeGroupGather,Gather Parts ,Find materials to build an UH-60
+challengeGroupGatherReward,Rewards XP
+
+challengeGroupGather2,Gather more Parts, Find materials to build an UH-60
+challengeGroupGather2Reward,Rewards XP
+
+challengeGroupEscape,Craft UH-60 and find TRADERS
+challengeGroupEscapeReward,Rewards XP
+
+
+# ============================================================
+# CHALLENGES - INDIVIDUAL
+# ============================================================
+
+# --- Start Mission ---
+challengeKillZombiesACC10Short,10 zombies
+challengeKillZombiesACC10Desc,"Kill 10 Zombies and find the Trader.\n\nThe trader is thru the double steel doors on the helicopter deck and down the hatch .\n\nThis starts your missions to complete the Destroyer of Dreams Challenge."
+
+# --- Kill some Zed heads! ---
+challengeKillZombiesACC100Short,100 zombies
+challengeKillZombiesACC100Desc,"Kill 100 Zombies.\n\nGoal is to eliminate 500 Zombies and earn XP through multiple smaller stages the earn a M60 machine gun."
+
+challengeKillZombiesACC200Short,200 zombies
+challengeKillZombiesACC200Desc,"Kill 200 Zombies.\n\nGoal is to eliminate 500 Zombies and earn XP through multiple smaller stages the earn a M60 machine gun."
+
+challengeKillZombiesACC300Short,300 zombies
+challengeKillZombiesACC300Desc,"Kill 300 Zombies.\n\nGoal is to eliminate 500 Zombies and earn XP through multiple smaller stages the earn a M60 machine gun."
+
+challengeKillZombiesACC400Short,400 zombies
+challengeKillZombiesACC400Desc,"Kill 400 Zombies. \n\nGoal is to eliminate 500 Zombies and earn XP through multiple smaller stages the earn a M60 machine gun."
+
+challengeKillZombiesACC500Short,500 zombies
+challengeKillZombiesACC500Desc,"Kill 500 Zombies for a M60  Machine gun."
+
+challengeKillZombiesACC1000Short,1000 zombies
+challengeKillZombiesACC1000Desc,"Kill 1000 Zombies.\n\nNow you're just showing off!"
+
+# --- Gather Steel ---
+challengeGatherSteelShort,Collect 200 forged steel
+challengeGatherSteelDesc,"Gather or Forge 200 forged steel.\n\nForging Requires a crucible that unlocks with 50/50 workbench magazine."
+challengeGatherSteelHint,Gather or forge this item
+
+# --- Gather Springs  ---
+challengeGatherSpringsShort,Collect 50 Springs
+challengeGatherSpringsDesc,"Find 50 Springs"
+challengeGatherSpringsHint,Wrench vehicles and machinery
+
+# --- Gather Mechanical Parts ---
+challengeGatherMechanicalPartsShort,Collect 60 mechanical parts
+challengeGatherMechanicalPartsDesc,"Find 60 mechanical parts."
+challengeGatherMechanicalPartsHint,Wrench office chairs and tool boxes
+
+# --- Gather Electrical Parts ---
+challengeGatherElectricalPartsShort,Collect 40 electrical parts
+challengeGatherElectricalPartsDesc,"Find 40 electrical parts."
+challengeGatherElectricalPartsHint,Wrench electronics and computers
+
+# --- Gather Leather ---
+challengeGatherLeatherShort,Collect 50 Leather
+challengeGatherLeatherDesc,"Find 50 Leather."
+challengeGatherLeatherHint,Wrench or scrap Office chairs
+
+# --- Gather Duct Tape ---
+challengeGatherDuctTapeShort,Collect 40 Duct Tape
+challengeGatherDuctTapeDesc,"Find or craft 40 Duct Tape."
+challengeGatherDuctTapeHint,Loot or craft
+
+# --- Gather Headlights ---
+challengeGatherHeadlightsShort,Collect 10 Headlights
+challengeGatherHeadlightsDesc,"Find 10 Headlights."
+challengeGatherHeadlightsHint,Wrench vehicles, projectors or loot  
+
+# --- Gather Metal Pipes ---
+challengeGatherMetalPipesShort,Collect 50 Metal Pipes
+challengeGatherMetalPipesDesc, "Find 50 Metal Pipes."
+challengeGatherMetalPipesHint,Wrench vehicles, plumbing or pipes
+
+# --- Gather Crucible ---
+challengeGatherCrucibleShort,Find or craft crucible
+challengeGatherCrucibleDesc,Find or craft crucible.\n\nThe crucible unlocks with 50/50 workbench magazines and is rarely found in loot.
+challengeGatherCrucibleHint,Find or craft this item
+
+# --- Gather Wheels ---
+challengeGathervehicleWheelsShort,Collect 3 Wheels
+challengeGathervehicleWheelsDesc,"Find or craft 3 wheels for the UH-60"
+challengeGathervehicleWheelsHint,Loot or craft wheels
+
+# --- Gather Engines ---
+challengeGathersmallEngineShort,Collect 2 Engines
+challengeGathersmallEngineDesc,"Find 2 Engines for the UH-60"
+challengeGathersmallEngineHint,Wrench vehicles or engines
+
+# --- Gather Batteries ---
+challengeGatherBatteriesShort,Collect 2 batteries
+challengeGatherBatteriesDesc,"Find 2 batteries for the UH-60"
+challengeGatherBatteriesHint,Wrench vehicles or check battery banks
+
+# --- Craft UH-60 Accessories ---
+challengeGatherUH-60AccessoriesShort,Craft UH-60 Accessories
+challengeGatherUH-60AccessoriesDesc,"Use parts collected to craft UH-60 Accessories.\n\nRequires skill 50/50 in vehicle magazines to craft."
+challengeGatherUH-60AccessoriesHint,Craft UH-60 Accessories
+
+# --- Craft UH-60 Chassis  ---
+challengeGatherUH-60ChassisShort,Craft UH-60 Chassis
+challengeGatherUH-60ChassisDesc,"Use parts collected to craft UH-60 Chassis.\n\nRequires skill 50/50 in vehicle magazines to craft."
+challengeGatherUH-60ChassisHint,Craft UH-60 Chassis
+# --- Craft UH-60  ---
+challengeGatherUH-60Short,Craft UH-60
+challengeGatherUH-60Desc,"Use parts collected to craft UH-60.\n\nRequires skill 50/50 in vehicle magazines to craft.\n\nDont forget to gas it up."
+challengeGatherUH-60Hint,Craft UH-60
+
+# --- Trader Jen ---
+challengeMeetJenShort,Meet Trader Dawnrox
+challengeMeetJenDesc," You can find Trader Dawnrox in the makeshift sickbay at Jen's clinic. She is friendlier than Trader Rekt and deals mostly in Medical supplies."
+
+# --- Trader Hugh ---
+challengeMeetHughShort,Meet Trader Hugh
+challengeMeetHughDesc,"Trader Hugh is a grizzled veteran holed up in his Army Surplus Store in the front of the ship. Hugh Got It. He's the guy to talk to for Weapons and Ammunitions from his personal reserve."
+
+# --- Trader Joel ---
+challengeMeetJoelShort,Meet Trader Shadow_Floodlight
+challengeMeetJoelDesc,"Track down Trader Shadow_Floodlight at his heavily fortified Hunter's Camp. Try and not bring any of those zed heads with you."
+
+# --- Trader Rekt ---
+challengeMeetRektDesc,"Talk to Trader Rekt at his place of business in the Rekt Feeds. He normally has a stockpile of Food and Farming supplies for sale."
+
+# --- Trader Bob ---
+challengeMeetBobDesc,"Bob's Salvage is home to scrapped vehicles, broken appliances, and local gear-head Trader Bob. If you're in the market for Vehicles and Tools he's the man to talk to."
+
+challenge_reward_5000xp,5000 XP + M60
+
+
 loadingTipAircraft1_title,Seeds asshole
 loadingTipAircraft1,"All seed crafting is unlocked by default, and some seeds only require a couple of food items to make. There are NO useable farm plots on the DOCKS or ships ..."
 

@@ -59,10 +59,6 @@
 			<property name="delay" value="2"/>
 		</action>
 
-		<objective type="EntityKill" value="10" phase="1">
-			<property name="target_tags" value="walker,feral,radiated,crawler" />
-		</objective>
-
 		<objective type="Goto" id="trader" value="5" phase="2">
 			<property name="biome_filter_type" value="any" />
 			<property name="Zoning" value="any" />
@@ -81,14 +77,10 @@
 		<reward type="LootItem" id="groupQuestT1Traps" ischosen="true" value="2"/>
 		<reward type="LootItem" id="groupQuestT1MeleeMods" ischosen="true" value="2"/>
 		<reward type="LootItem" id="groupQuestT1RangedMods" ischosen="true" value="2"/>
-		
-		<reward type="SkillPoints" value="4" />
 			
 		<reward type="Quest" id="quest_DestroyerChallenge" />
-		<reward type="Quest" id="quest_eliminatezombies10" />
 	</quest>
 		
-		<!-- UH-60 Supplies for accessories -->
 		<quest id="quest_DestroyerChallenge">
 			<property name="name_key" value="quest_DestroyerChallenge"/>
 			<property name="subtitle_key" value="quest_DestroyerChallenge_subtitle"/>
@@ -109,6 +101,8 @@
 			
 			<property name="completiontype" value="TurnIn"/>
 			<property name="completion_key" value="quest_fetch_completion"/>
+
+			<property name="reward_choices_count" value="5"/>
 
 			<objective type="GotoPOISDX, SCore" value="10-6000" phase="1">
 				<property name="completion_distance" value="50" />
@@ -146,8 +140,10 @@
 			</objective>
 
 			<reward type="Exp" value="5060"/>
-			<reward type="Quest" id="quest_DestroyerChallenge02" />
+			<reward type="Quest" id="quest_DestroyerChallenge08" />
 
+			
+			
 			<reward type="LootItem" id="groupQuestForge" ischosen="true" value="2"/>
 			<reward type="LootItem" id="groupQuestFarmPlotsT1" ischosen="true" value="2"/>
 			<reward type="LootItem" id="groupQuestAmmoCraftingBundle" ischosen="true" value="2"/>
@@ -160,86 +156,7 @@
 			<reward type="LootItem" id="groupQuestT1RangedMods" ischosen="true" value="2"/>
 			
 		</quest>
-
-		<!-- UH-60 Supplies for accessories -->
 		
-		<quest id="quest_DestroyerChallenge02">
-			<property name="name_key" value="quest_DestroyerChallenge02"/>
-			<property name="subtitle_key" value="quest_DestroyerChallenge02_subtitle"/>
-			<property name="description_key" value="quest_DestroyerChallenge02_description"/>
-			<property name="repeatable" value="false"/>
-			<property name="category_key" value="quest" />
-			<property name="offer_key" value="quest_DestroyerChallenge02_offer" />
-			<property name="difficulty" value="medium" />
-			<property name="shareable" value="true"/>
-
-			<action type="TrackQuest"/>
-
-			<action type="ShowMessageWindow">
-				<property name="title" value="[FFFF00] MULTIPLAYER [-]"/>
-				<property name="message" value="ONLY [FFFF00]ONE PLAYER [-]HAS TO COMPLETE THE [FFFF00]UH-60 CRAFTING QUESTS.[-]"/>
-				<property name="delay" value="2"/>
-			</action>
-			
-			<objective type="FetchKeep" id="resourceForgedSteel" value="50" phase="1"/>
-			<objective type="FetchKeep" id="resourceMechanicalParts" value="10" phase="1"/>
-			<objective type="FetchKeep" id="resourceLeather" value="50" phase="1"/>
-			<objective type="FetchKeep" id="resourceElectricParts" value="40" phase="1"/>
-			<objective type="FetchKeep" id="resourceHeadlight" value="10" phase="1"/>
-
-			<reward type="Exp" value="5000"/>
-			<reward type="Quest" id="quest_DestroyerChallenge03">
-			</reward>
-		</quest>
-
-		<quest id="quest_DestroyerChallenge03">
-			<property name="name_key" value="quest_DestroyerChallenge03"/>
-			<property name="subtitle_key" value="quest_DestroyerChallenge03_subtitle"/>
-			<property name="description_key" value="quest_DestroyerChallenge03_description"/>
-			<property name="icon" value="ui_game_symbol_gyrocopter"/>
-			<property name="repeatable" value="false"/>
-			<property name="category_key" value="quest"/>
-			<property name="offer_key" value="quest_DestroyerChallenge03_offer"/>
-			<property name="difficulty" value="medium"/>
-			<property name="shareable" value="false"/>
-
-			<action type="TrackQuest"/>
-
-			<objective type="FetchKeep" id="resourceSpring" value="50" phase="1"/>
-			<objective type="FetchKeep" id="resourceForgedSteel" value="350" phase="1"/>
-			<objective type="FetchKeep" id="resourceMechanicalParts" value="50" phase="1"/>
-			<objective type="FetchKeep" id="resourceDuctTape" value="40" phase="1"/>
-			<objective type="FetchKeep" id="resourceMetalPipe" value="50" phase="1"/>
-	
-			<reward type="Exp" value="5000"/>
-			<reward type="Quest" id="quest_DestroyerChallenge05"/>
-		</quest>
-
-		<quest id="quest_DestroyerChallenge05">
-			<property name="name_key" value="quest_DestroyerChallenge05"/>
-			<property name="subtitle_key" value="quest_DestroyerChallenge05_subtitle"/>
-			<property name="description_key" value="quest_DestroyerChallenge05_description"/>
-			<property name="icon" value="ui_game_symbol_gyrocopter"/>
-			<property name="repeatable" value="false"/>
-			<property name="category_key" value="quest"/>
-			<property name="offer_key" value="questDestroyerChallenge05_offer"/>
-			<property name="difficulty" value="medium"/>
-			<property name="shareable" value="false"/>
-
-			<action type="TrackQuest"/>
-
-			<objective type="FetchKeep" id="vehicleUH60chassis" value="1" phase="1"/>
-			<objective type="FetchKeep" id="smallEngine" value="2" phase="1"/>
-			<objective type="FetchKeep" id="carBattery" value="2" phase="1"/>
-			<objective type="FetchKeep" id="vehicleWheels" value="3" phase="1"/>
-			<objective type="FetchKeep" id="vehicleUH60accessories" value="1" phase="1"/>
-			
-			<objective type="FetchKeep" id="vehicleUH60placeable" value="1" phase="2"/>
-
-			<reward type="Exp" value="2500"/>
-			<reward type="Quest" id="quest_DestroyerChallenge08"/>
-		</quest>
-
 			<quest id="quest_DestroyerChallenge08">
 				<property name="name_key" value="quest_DestroyerChallenge08"/>
 				<property name="subtitle_key" value="quest_DestroyerChallenge08_subtitle"/>
@@ -327,8 +244,6 @@
 				<objective type="RallyPoint">
 					<property name="phase" value="2"/>
 					<property name="nav_object" value="rally"/>
-					<!-- <property name="allowed_start_hour" value="22"/>
-					<property name="allowed_end_hour" value="4"/> -->
 					<property name="rally_marker_type" value="questRallyMarkerRestorePower" />
 				</objective>
 
@@ -388,168 +303,5 @@
 
 		    <!-- END Destroyer Challenge main quest line -->
 
-            <!-- BEGIN chained zombies kill repeatable quest line -->
-
-		<quest id="quest_eliminatezombies10">
-
-			<property name="offer_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-			<property name="name_key" value="10 Zombies" />
-			<property name="subtitle_key" value="10 Zombies" />
-			<property name="description_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-			<property name="icon" value="ui_game_symbol_zombie"/>
-			<property name="repeatable" value="true"/>
-			<property name="category_key" value="Quest"/>
-			<property name="difficulty" value="easy"/>
-			<property name="shareable" value="false"/>
-
-			<objective type="EntityKill" value="10" phase="1">
-				<property name="target_tags" value="walker,feral,radiated,crawler" />
-			</objective>
-
-			<reward type="Item" id="casinoCoin" value="20"/>
-			<reward type="Quest" id="quest_eliminatezombies15">
-				<property name="chainquest" value="false"/>
-			</reward>
-
-		</quest>
-
-		<quest id="quest_eliminatezombies15">
-
-			<property name="offer_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-			<property name="name_key" value="15 Zombies" />
-			<property name="subtitle_key" value="15 Zombies" />
-			<property name="description_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-			<property name="icon" value="ui_game_symbol_zombie"/>
-			<property name="repeatable" value="true"/>
-			<property name="category_key" value="Quest"/>
-			<property name="difficulty" value="easy"/>
-			<property name="shareable" value="false"/>
-
-			<objective type="EntityKill" value="15" phase="1">
-				<property name="target_tags" value="walker,feral,radiated,crawler" />
-			</objective>
-
-			<reward type="Exp" value="1500"/>
-			<reward type="Quest" id="quest_eliminatezombies25">
-				<property name="chainquest" value="false"/>
-			</reward>
-
-		</quest>
-
-		<quest id="quest_eliminatezombies25">
-
-			<property name="offer_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-			<property name="name_key" value="25 Zombies" />
-			<property name="subtitle_key" value="25 Zombies" />
-			<property name="description_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-			<property name="icon" value="ui_game_symbol_zombie"/>
-			<property name="repeatable" value="true"/>
-			<property name="category_key" value="Quest"/>
-			<property name="difficulty" value="easy"/>
-			<property name="shareable" value="false"/>
-
-			<objective type="EntityKill" value="25" phase="1">
-				<property name="target_tags" value="walker,feral,radiated,crawler" />
-			</objective>
-
-			<reward type="Exp" value="2500"/>
-			<reward type="Quest" id="quest_eliminatezombies50">
-				<property name="chainquest" value="false"/>
-			</reward>
-
-		</quest>
-
-		<quest id="quest_eliminatezombies50">
-
-			<property name="offer_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-			<property name="name_key" value="50 Zombies" />
-			<property name="subtitle_key" value="50 Zombies" />
-			<property name="description_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-			<property name="icon" value="ui_game_symbol_zombie"/>
-			<property name="repeatable" value="true"/>
-			<property name="category_key" value="Quest"/>
-			<property name="difficulty" value="easy"/>
-			<property name="shareable" value="false"/>
-
-			<objective type="EntityKill" value="50" phase="1">
-				<property name="target_tags" value="walker,feral,radiated,crawler" />
-			</objective>
-
-			<reward type="Exp" value="5000"/>
-			<reward type="Quest" id="quest_eliminatezombies75">
-				<property name="chainquest" value="false"/>
-			</reward>
-
-		</quest>
-
-		<quest id="quest_eliminatezombies75">
-
-				<property name="offer_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-				<property name="name_key" value="75 Zombies" />
-				<property name="subtitle_key" value="75 Zombies" />
-				<property name="description_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-				<property name="icon" value="ui_game_symbol_zombie"/>
-				<property name="repeatable" value="true"/>
-				<property name="category_key" value="Quest"/>
-				<property name="difficulty" value="easy"/>
-				<property name="shareable" value="false"/>
-
-				<objective type="EntityKill" value="75" phase="1">
-					<property name="target_tags" value="walker,feral,radiated,crawler" />
-				</objective>
-			
-			    <reward type="Exp" value="7500"/>
-				<reward type="Quest" id="quest_eliminatezombies125">
-					<property name="chainquest" value="false"/>
-				</reward>
-
-		</quest>
-
-		<quest id="quest_eliminatezombies125">
-
-			<property name="offer_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-			<property name="name_key" value="125 Zombies" />
-			<property name="subtitle_key" value="125 Zombies" />
-			<property name="description_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-			<property name="icon" value="ui_game_symbol_zombie"/>
-			<property name="repeatable" value="true"/>
-			<property name="category_key" value="Quest"/>
-			<property name="difficulty" value="easy"/>
-			<property name="shareable" value="false"/>
-
-			<objective type="EntityKill" value="125" phase="1">
-				<property name="target_tags" value="walker,feral,radiated,crawler" />
-			</objective>
-
-			<reward type="Exp" value="12500"/>
-			<reward type="Quest" id="quest_eliminatezombies200">
-				<property name="chainquest" value="false"/>
-			</reward>
-
-		</quest>
-
-		<quest id="quest_eliminatezombies200">
-
-			<property name="offer_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-			<property name="name_key" value="200 Zombies" />
-			<property name="subtitle_key" value="200 Zombies" />
-			<property name="description_key" value="Accept this quest to eliminate 500 Zombies through multiple smaller stages. Eliminate 10 in the first stage for 20 Dukes, 15 for 1500 XP, 25 for 2500 XP, 50 for 5000 XP, 75 for 750O XP, 125 for 12500 XP, and 200 for 2 Skill Points and M-60 Machine Gun. This Quest repeats in an endless loop." />
-			<property name="icon" value="ui_game_symbol_zombie"/>
-			<property name="repeatable" value="true"/>
-			<property name="category_key" value="Quest"/>
-			<property name="difficulty" value="easy"/>
-			<property name="shareable" value="false"/>
-
-			<objective type="EntityKill" value="200" phase="1">
-				<property name="target_tags" value="walker,feral,radiated,crawler" />
-			</objective>
-
-			<reward type="SkillPoints" value="2" chainreward="false"/>
-			<reward type="Item" id="gunMGT3M60" value="3-6"/>
-
-			<reward type="Quest" id="quest_eliminatezombies10">
-				<property name="chainquest" value="false"/>
-			</reward>
-		</quest>
 	</append>	
 </configs>
