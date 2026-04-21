@@ -14,12 +14,16 @@ public class SCoreModEvents {
         ModletChecks();
         ModEvents.GameStartDone.RegisterHandler(CheckExternalParticles);
         ModEvents.GameStartDone.RegisterHandler(EntityPool);
+        ModEvents.GameStartDone.RegisterHandler(HarvestManager.Load);
+        ModEvents.GameShutdown.RegisterHandler(new ModEvents.ModEventHandlerDelegate<ModEvents.SGameShutdownData>(HarvestManager.Save));
 
         VersionCheck.LoadConfig();
         ModEvents.GameStartDone.RegisterHandler(VersionCheck.OnGameStartDone);
 
         ModEvents.PlayerSpawnedInWorld.RegisterHandler(CheckGraphicSettings);      
         ModEvents.PlayerSpawnedInWorld.RegisterHandler(AddTriggeredEvents);
+
+        SCoreEntityKilled.Init();
 
         // When player starts a game
         // ModEvents.GameShutdown.RegisterHandler(new Action(FireManager.Instance.CleanUp));

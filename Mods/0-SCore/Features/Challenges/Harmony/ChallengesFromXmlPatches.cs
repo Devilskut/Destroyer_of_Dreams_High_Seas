@@ -5,15 +5,7 @@ using UnityEngine;
 
 namespace SCore.Features.Challenges.Harmony
 {
-    [HarmonyPatch(typeof(ChallengeClass))]
-    [HarmonyPatch(nameof(ChallengeClass.ParseElement))]
-    public class ChallengesFromXmlPatches
-    {
-        public static void Postfix(ChallengeClass __instance, XElement e)
-        {
-            ChallengeRequirementManager.AddRequirements(__instance.Name.ToLower(), e);
-        }
-    }
+   
     
     [HarmonyPatch(typeof(BaseChallengeObjective))]
     [HarmonyPatch(nameof(BaseChallengeObjective.CheckBaseRequirements))]
@@ -28,8 +20,9 @@ namespace SCore.Features.Challenges.Harmony
             // skip if we are just initializing
             if (string.IsNullOrEmpty(__instance.Owner.ChallengeClass.Name)) return;
             
+          
             // Check to see if we have any requirements for this.
-            var results = ChallengeRequirementManager.IsValid(__instance.Owner.ChallengeClass.Name.ToLower());
+            var results = ChallengeRequirementManager.IsValid(__instance.Owner.ChallengeClass.Name.ToLower(), __instance.Owner.ChallengeClass);
             __result = !results;
 
         }

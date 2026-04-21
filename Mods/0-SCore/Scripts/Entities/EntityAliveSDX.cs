@@ -25,7 +25,7 @@ using UnityEngine.Serialization;
 using Debug = UnityEngine.Debug;
 
 // ReSharper disable once CheckNamespace
-public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
+public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX, IEntityAliveSDX
 {
     public List<string> lstQuests = new List<string>();
     public bool isAlwaysAwake;
@@ -71,6 +71,8 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
     public bool isTeleporting = false;
 
     public bool isHirable = true;
+    public bool IsHirable => isHirable;   // IEntityAliveSDX
+    public bool IsSleeping { get; set; }
     public bool isQuestGiver = true;
 
     // Read the configuration to see if the hired NPCs should join the player's group.
@@ -205,7 +207,7 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
                 this.NavObject.IsActive = false;
             // Clear the debug information, usually set from UAI
             this.DebugNameInfo = "";
-
+            emodel.enabled = false;
             // Turn off the display component
             SetupDebugNameHUD(false);
         }
@@ -220,6 +222,8 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
                 this.NavObject.IsActive = true;
             isIgnoredByAI = false;
             // SetupDebugNameHUD(true);
+            emodel.enabled = true;
+
         }
     }
 
@@ -792,16 +796,21 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
         _bw.Write(holdingItemName);
 
         // 7. Loot Container (The "Backpack" Storage)
-        // This is unique to SDX, so we must save it manually.
-        // We do NOT save 'inventory' or 'bag' here because base.Write already did it.
-        if (lootContainer != null)
+        // For EntityTrader-based entities the player-accessible bag lives in HarvestManager.
+        // Prefer that when present; fall back to lootContainer for any non-trader subclass.
+        if (HarvestManager.Has(entityId))
         {
-            _bw.Write(true); // Flag: Has Container
+            _bw.Write(true);
+            GameUtils.WriteItemStack(_bw, HarvestManager.GetOrCreate(entityId).GetItems());
+        }
+        else if (lootContainer != null)
+        {
+            _bw.Write(true);
             GameUtils.WriteItemStack(_bw, lootContainer.GetItems());
         }
         else
         {
-            _bw.Write(false); // Flag: No Container
+            _bw.Write(false);
         }
     }
 
@@ -848,25 +857,17 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
         }
 
         // 7. Loot Container
-        // Read the flag first
+        // Items are restored into HarvestManager so that OpenInventory finds them under
+        // the entity's ID.  PostInit will set up lootContainer separately.
         bool hasLootContainer = _br.ReadBoolean();
         if (hasLootContainer)
         {
             ItemStack[] lootItems = GameUtils.ReadItemStack(_br);
-            
-            // Ensure container exists
-            if (lootContainer == null)
-            {
-                Chunk chunk= null;
-                lootContainer = new TileEntityLootContainer(chunk);
-                lootContainer.entityId = this.entityId;
-                // Default size if we can't find the class-specific one yet
-                lootContainer.SetContainerSize(new Vector2i(8, 6)); 
-            }
-            
             if (lootItems != null)
             {
-                lootContainer.items = lootItems;
+                var hc = HarvestManager.GetOrCreate(entityId);
+                for (int i = 0; i < lootItems.Length && i < hc.items.Length; i++)
+                    hc.items[i] = lootItems[i];
             }
         }
     }
@@ -1143,13 +1144,10 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
     {
         // Has a leader cvar set, good enough, as the leader may already be disconnected, so we'll fail a GetLeaderOrOwner()
         if (Buffs.HasCustomVar("Leader")) return true;
-
         // If they have a cvar persist, keep them around.
         if (Buffs.HasCustomVar("Persist")) return true;
-
         // If its dynamic spawn, don't let them stay.
         if (GetSpawnerSource() == EnumSpawnerSource.Dynamic) return false;
-
         // If its biome spawn, don't let them stay.
         if (GetSpawnerSource() == EnumSpawnerSource.Biome) return false;
         return true;
@@ -1232,12 +1230,13 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
         }
 
         // Force the leader to have the hired entity id
-        leader.Buffs.SetCustomVar($"hired_{entityId}", (float)entityId);
+      //  leader.Buffs.SetCustomVar($"hired_{entityId}", (float)entityId);
 
         var player = leader as EntityPlayer;
         // If the player doesn't have a party, create one, so we can share exp with our leader.
-        if (player && !player.IsInParty())
+        if (player )
         {
+            leader.Buffs.SetCustomVar($"hired_{entityId}", (float)entityId);
             //  player.CreateParty();
         }
 
@@ -1255,6 +1254,7 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
                     {
                         var _position = leader.GetPosition();
                         _position.y += 2;
+                        
                         SetPosition(_position);
                     }
                 }
@@ -1338,6 +1338,7 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
         try
         {
             base.OnUpdateLive();
+            if (IsDead()) return;
             // Potential work around for NPC stuck for 3 seconds in crouch after being stunned
             if (bodyDamage.CurrentStun is EnumEntityStunType.Getup or EnumEntityStunType.Prone)
             {
@@ -1346,6 +1347,7 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
         }
         catch (Exception ex)
         {
+            Debug.Log($"Entity Exception {entityId}: {ex}");
             // ignored
         }
 
@@ -1681,8 +1683,8 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
                 myPosition = RandomPositionGenerator.CalcPositionInDirection(target, target.position, dirV, 5, 80f);
             }
 
-            //// Find the ground.
-            myPosition.y = (int)GameManager.Instance.World.GetHeightAt(myPosition.x, myPosition.z) + 1;
+            // Find the actual surface, including player-placed blocks (e.g. farm plots).
+            myPosition.y = GetSurfaceY(myPosition.x, myPosition.z);
         }
 
         motion = Vector3.zero;
@@ -1691,6 +1693,25 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
 
         this.SetPosition(myPosition, true);
         StartCoroutine(validateTeleport(target, randomPosition));
+    }
+
+    /// <summary>
+    /// Returns the Y coordinate one block above the highest solid block at (x, z),
+    /// scanning upward from terrain height through any player-placed blocks (e.g. farm plots).
+    /// Unlike GetHeightAt, this accounts for structures built on top of terrain.
+    /// </summary>
+    private static int GetSurfaceY(float x, float z)
+    {
+        var world = GameManager.Instance.World;
+        int y = (int)world.GetHeightAt(x, z);
+        int bx = (int)x;
+        int bz = (int)z;
+        // Scan upward past any continuous solid blocks placed above terrain (capped at +20 to
+        // avoid climbing through entire buildings).
+        int cap = y + 20;
+        while (y < cap && world.GetBlock(bx, y + 1, bz).Block.shape.IsSolidSpace)
+            y++;
+        return y + 1;
     }
 
     private float getAltitude(Vector3 pos)
@@ -1707,7 +1728,7 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
     private IEnumerator validateTeleport(EntityAlive target, bool randomPosition = false)
     {
         yield return new WaitForSeconds(1f);
-        var y = (int)GameManager.Instance.World.GetHeightAt(position.x, position.z);
+        var y = GetSurfaceY(position.x, position.z);
         if (position.y < y)
         {
             var myPosition = position;
@@ -1722,8 +1743,8 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
                 myPosition = RandomPositionGenerator.CalcPositionInDirection(target, target.position, dirV, 5, 80f);
             }
 
-            //// Find the ground.
-            myPosition.y = (int)GameManager.Instance.World.GetHeightAt(myPosition.x, myPosition.z) + 2;
+            // Find the actual surface, including player-placed blocks (e.g. farm plots).
+            myPosition.y = GetSurfaceY(myPosition.x, myPosition.z) + 1;
 
             // var myPosition = RandomPositionGenerator.CalcTowards(Owner, 5, 20, 2, Owner.position);
 
@@ -1766,37 +1787,6 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
     {
         GameManager.Instance.World.ChunkClusters[0].OnChunkVisibleDelegates -= this.chunkClusterVisibleDelegate;
 
-        //if ( !isHirable)
-        //{
-        //    base.MarkToUnload();
-        //    return;
-        //}
-
-        //// Only prevent despawning if owned.
-        //var leader = EntityUtilities.GetLeaderOrOwner(entityId);
-        //// make sure they are alive first.
-        //if (leader != null && IsAlive())
-        //{
-        //    switch (EntityUtilities.GetCurrentOrder(entityId))
-        //    {
-        //        case EntityUtilities.Orders.Patrol:
-        //        case EntityUtilities.Orders.Stay:
-        //            base.MarkToUnload();
-        //            return;
-        //        default:
-        //            break;
-        //    }
-        // Something asked us to despawn. Check if we are in a trader area. If we are, ignore the request.
-        //if (_traderArea == null)
-        //    _traderArea = world.GetTraderAreaAt(new Vector3i(position));
-
-        //if (_traderArea != null)
-        //{
-
-        //    IsDespawned = false;
-        //    return;
-        //}
-        ////  }
 
         base.MarkToUnload();
     }
@@ -1826,63 +1816,43 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
 
     public void AddKillXP(EntityAlive killedEntity, float xpModifier = 1f)
     {
-        var num = EntityClass.list[killedEntity.entityClass].ExperienceValue;
-        if (xpModifier is > 1f or < 1f)
+        Debug.Log("AddKillXP()");
+        int num = EntityClass.list[killedEntity.entityClass].ExperienceValue;
+        num = (int)EffectManager.GetValue(PassiveEffects.ExperienceGain, killedEntity.inventory.holdingItemItemValue,
+            (float)num, killedEntity, null, default(FastTags<TagGroup.Global>), true, true, true, true, true, 1, true,
+            false);
+        if (xpModifier != 1f)
         {
-            num = (int)(num * xpModifier);
+            num = (int)((float)num * xpModifier + 0.5f);
         }
 
         var leader = EntityUtilities.GetLeaderOrOwner(entityId) as EntityPlayer;
         if (leader)
         {
-            if (leader.Party != null)
-            {
-                // We don't check to see if its in the party, as the NPC isn't' really part of the party.
-                num = leader.Party.GetPartyXP(leader, num);
-            }
+            num = leader.Party.GetPartyXP(leader, num);
         }
 
-
-        if (!isEntityRemote)
+        if (!this.isEntityRemote)
         {
-            if (Progression != null)
-            {
-                Progression.AddLevelExp(num, "_xpFromKill", Progression.XPTypes.Kill, true);
-                bPlayerStatsChanged = true;
-            }
+            this.Progression.AddLevelExp(num, "_xpFromKill", Progression.XPTypes.Kill, true, true, this.entityId);
+            this.bPlayerStatsChanged = true;
         }
         else
         {
-            var package = NetPackageManager.GetPackage<NetPackageEntityAddExpClient>()
-                .Setup(this.entityId, num, Progression.XPTypes.Kill);
-            SingletonMonoBehaviour<ConnectionManager>.Instance.SendPackage(package, false, this.entityId);
+            Debug.Log("AddKillXP():: send package");
+
+            NetPackageEntityAddExpClient netPackageEntityAddExpClient = NetPackageManager
+                .GetPackage<NetPackageEntityAddExpClient>().Setup(this.entityId, num, Progression.XPTypes.Kill);
+            SingletonMonoBehaviour<ConnectionManager>.Instance.SendPackage(netPackageEntityAddExpClient, false,
+                this.entityId, -1, -1, null, 192, false);
         }
 
-        if (leader == null) return;
-        if (leader.Party == null)
-        {
-            if (GameManager.Instance.World.IsLocalPlayer(leader.entityId))
-            {
-                GameManager.Instance.SharedKillClient(killedEntity.entityClass, num, null);
-            }
+        Debug.Log($"AddKillXP() :: xpModifer: {xpModifier}");
 
-            return;
-        }
-
-        foreach (var entityPlayer2 in leader.Party.MemberList)
+        if (xpModifier == 1f)
         {
-            if (!(Vector3.Distance(leader.position, entityPlayer2.position) <
-                  (float)GameStats.GetInt(EnumGameStats.PartySharedKillRange))) continue;
-            if (GameManager.Instance.World.IsLocalPlayer(entityPlayer2.entityId))
-            {
-                GameManager.Instance.SharedKillClient(killedEntity.entityClass, num, null);
-            }
-            else
-            {
-                SingletonMonoBehaviour<ConnectionManager>.Instance.SendPackage(
-                    NetPackageManager.GetPackage<NetPackageSharedPartyKill>()
-                        .Setup(killedEntity.entityId, entityId), false, entityPlayer2.entityId);
-            }
+            Debug.Log("Sharing xP");
+            GameManager.Instance.SharedKillServer(killedEntity.entityId, this.entityId, xpModifier);
         }
     }
 
@@ -1955,31 +1925,7 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
 
         return;
     }
-    // public override Vector3i dropCorpseBlock()
-    // {
-    //     var bagPosition = new Vector3i(this.position + base.transform.up);
-    //     if (lootContainer == null) return base.dropCorpseBlock();
-    //
-    //     if (lootContainer.IsEmpty()) return base.dropCorpseBlock();
-    //
-    //     // Check to see if we have our backpack container.
-    //     var className = "BackpackNPC";
-    //     EntityClass entityClass = EntityClass.GetEntityClass(className.GetHashCode());
-    //     if (entityClass == null)
-    //         className = "Backpack";
-    //
-    //     var entityBackpack = EntityFactory.CreateEntity(className.GetHashCode(), bagPosition) as EntityItem;
-    //     EntityCreationData entityCreationData = new EntityCreationData(entityBackpack);
-    //     entityCreationData.entityName = Localization.Get(this.EntityName);
-    //
-    //     entityCreationData.id = -1;
-    //     entityCreationData.lootContainer = lootContainer;
-    //     GameManager.Instance.RequestToSpawnEntityServer(entityCreationData);
-    //     entityBackpack.OnEntityUnload();
-    //    // this.SetDroppedBackpackPosition(new Vector3i(bagPosition));
-    //     return bagPosition;
-    //
-    // }
+   
 
     public override void PlayStepSound(string stepSound, float volume)
     {
@@ -2033,6 +1979,19 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
 
     public bool FindWeapon(string weapon)
     {
+        // Check starting items first — items like meleeNPCEmptyHand have no CompatibleWeapon property
+        // but are always available because they're part of the NPC's base kit.
+        for (var i = 0; i < itemsOnEnterGame.Count; i++)
+        {
+            if (itemsOnEnterGame[i].itemValue.ItemClass.GetItemName()
+                .Equals(weapon, StringComparison.InvariantCultureIgnoreCase)) return true;
+        }
+
+        if (GetHandItem().ItemClass.GetItemName().Equals(weapon, StringComparison.InvariantCultureIgnoreCase))
+            return true;
+
+        // For NPC weapons that map to a player-held counterpart (via CompatibleWeapon property),
+        // verify the player version is present in the accessible inventory.
         var currentWeapon = ItemClass.GetItem(weapon);
         if (currentWeapon == null) return false;
         if (!currentWeapon.ItemClass.Properties.Contains("CompatibleWeapon")) return false;
@@ -2040,28 +1999,27 @@ public class EntityAliveSDX : EntityTrader, IEntityOrderReceiverSDX
         if (string.IsNullOrEmpty(playerWeapon)) return false;
         var playerWeaponItem = ItemClass.GetItem(playerWeapon);
         if (playerWeaponItem == null) return false;
-        if (lootContainer != null)
-        {
-            if (lootContainer.HasItem(playerWeaponItem))
-                return true;
-        }
 
-        // If we don't have it in our loot container, check to see if we had it when we first spawned in.
-        for (var i = 0; i < itemsOnEnterGame.Count; i++)
-        {
-            var itemStack = itemsOnEnterGame[i];
-            if (itemStack.itemValue.ItemClass.GetItemName()
-                .Equals(weapon, StringComparison.InvariantCultureIgnoreCase)) return true;
-        }
+        // EntityTrader-based NPCs store their accessible inventory in HarvestManager.
+        if (this is EntityTrader && HarvestManager.Has(entityId))
+            return HarvestManager.GetOrCreate(entityId).HasItem(playerWeaponItem);
 
-        if (GetHandItem().ItemClass.GetItemName().Equals(weapon, StringComparison.InvariantCultureIgnoreCase))
-            return true;
-        return false;
+        return lootContainer != null && lootContainer.HasItem(playerWeaponItem);
     }
 
 
     public override void SetupStartingItems()
     {
+        // If InitialInventory is already set, this is a restored NPC (picked up and re-placed).
+        // Skip overwriting their inventory with the default XML starting items, but still set
+        // _defaultWeapon so UpdateWeapon has a fallback when FindWeapon fails.
+        if (Buffs.GetCustomVar("InitialInventory") > 0)
+        {
+            if (itemsOnEnterGame.Count > 0 && string.IsNullOrEmpty(_defaultWeapon))
+                _defaultWeapon = ItemClass.GetForId(itemsOnEnterGame[0].itemValue.type).GetItemName();
+            return;
+        }
+
         for (var i = 0; i < this.itemsOnEnterGame.Count; i++)
         {
             var itemStack = this.itemsOnEnterGame[i];
