@@ -87,7 +87,7 @@
 
 	<challenge name="killZombiesACC500" title_key="Kill 500 Zombies" icon="ui_game_symbol_challenge_adv_survival_kill_zombies" group="Kill"
 				   short_description_key="challengeKillZombiesACC500Short" description_key="challengeKillZombiesACC500Desc"
-				   reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+				   reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_MGT3M60">
 		<objective type="KillByTag" entity_tags="zombie" target_name_key="xuiZombies" count="500"/>
 	</challenge>
 
